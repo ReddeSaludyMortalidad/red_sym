@@ -1032,6 +1032,57 @@
                     </div>
                 </div>
             </div>
+
+<!-- Sección de Recordatorio para Miembros - Opción Centrada -->
+<div class="section">
+    <div class="section-header">
+        🔔 Recordatorio para Miembros
+    </div>
+    <div class="section-content" style="text-align: center;">
+        <!-- Banner arriba -->
+        <div style="margin-bottom: 2rem;">
+            <div style="background: white; border-radius: 4px; overflow: hidden; border: 1px solid #e5e5e5; display: inline-block; max-width: 100%;">
+                <img src="images/banner-recordatorio.png" alt="Recordatorio Estudios Demográficos y Urbanos" 
+                     style="width: 100%; height: auto; display: block; max-height: 150px; object-fit: contain;">
+            </div>
+        </div>
+        
+        <!-- Contenido centrado -->
+        <div style="max-width: 600px; margin: 0 auto;">
+            <div style="background: #f8f9fa; padding: 2rem; border-radius: 4px; border-left: 4px solid #c67438; margin-bottom: 1.5rem;">
+                <p style="color: #2c2c2c; font-size: 1.1rem; margin-bottom: 1.5rem; line-height: 1.6;">
+                    Recuerda que tienes hasta el <strong style="color: #9f3536;">30 de octubre de 2025</strong> para enviar tu artículo a la revista <strong>Estudios Demográficos y Urbanos</strong>.
+                </p>
+                
+                <!-- Botón centrado -->
+                <a href="https://estudiosdemograficosyurbanos.colmex.mx/" target="_blank" rel="noopener noreferrer"
+                   style="display: inline-block; background: #054056; color: white; padding: 1rem 2rem; text-decoration: none; border-radius: 4px; font-weight: 600; font-size: 1.1rem; transition: all 0.3s ease; border: 1px solid #054056; box-shadow: 0 3px 10px rgba(5, 64, 86, 0.2);"
+                   onmouseover="this.style.backgroundColor='#408355'; this.style.transform='translateY(-2px)'"
+                   onmouseout="this.style.backgroundColor='#054056'; this.style.transform='translateY(0)'">
+                    🔗 Accede a la revista aquí
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CSS ADICIONAL PARA RESPONSIVE -->
+<style>
+@media (max-width: 768px) {
+    /* Para la Opción 1 - en móvil se apila verticalmente */
+    .section-content > div:first-child {
+        flex-direction: column !important;
+        gap: 1.5rem !important;
+    }
+    
+    .section-content > div:first-child > div:last-child {
+        flex: none !important;
+        text-align: center;
+    }
+}
+</style>
+
+           
         </div>
 
         <!-- TAB 3: PUBLICACIONES -->
