@@ -16,6 +16,9 @@
             line-height: 1.7;
             color: #2c2c2c;
             background: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         .header {
@@ -100,10 +103,18 @@
             border-bottom-color: #c67438;
         }
 
+        /* CONTENEDOR PRINCIPAL */
+        .main-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
         .content {
             max-width: 900px;
             margin: 0 auto;
             padding: 2.5rem 60px;
+            flex: 1;
         }
 
         .tab-content {
@@ -331,6 +342,84 @@
             text-align: center;
         }
 
+        /* SECCIÓN DESPLEGABLE PARA EVENTOS */
+        .collapsible-section {
+            margin-bottom: 2rem;
+        }
+
+        .collapsible-header {
+            background: #054056;
+            color: white;
+            padding: 1.2rem 2rem;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: 500;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+            border-radius: 4px 4px 0 0;
+        }
+
+        .collapsible-header:hover {
+            background: #408355;
+        }
+
+        .collapsible-header.active {
+            background: #408355;
+            border-radius: 4px 4px 0 0;
+        }
+
+        .collapsible-content {
+            display: none;
+            background: white;
+            border: 1px solid #e5e5e5;
+            border-top: none;
+            border-radius: 0 0 4px 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .collapsible-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        .collapsible-content .section-content {
+            padding: 2rem;
+        }
+
+        /* FOOTER */
+        .footer {
+            background: #054056;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: auto;
+            box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+        }
+
+        .footer-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer p {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .footer a {
+            color: #c67438;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
         /* MEDIA QUERIES CORREGIDAS */
         @media (max-width: 768px) {
             .accordion-header {
@@ -392,6 +481,19 @@
             .columns-layout {
                 columns: 1 !important;
             }
+
+            .collapsible-header {
+                padding: 1rem 1.5rem;
+                font-size: 1.1rem;
+            }
+
+            .footer {
+                padding: 1rem 0;
+            }
+
+            .footer p {
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
@@ -420,621 +522,572 @@
         <button class="nav-tab" data-tab="registro">Unirse</button>
     </nav>
 
-    <main class="content">
-        <!-- TAB 1: QUIÉNES SOMOS -->
-        <div id="quienes-somos" class="tab-content active">
-            <div class="section">
-                <div class="section-header">
-                    Descripción
-                </div>
-                <div class="section-content">
-                    <div class="highlight-box">
-                    <p style="font-size: 1.1rem; line-height: 1.8; color: #333; text-align: justify;">
-                        Creada en 2020, la Red de Salud y Mortalidad reúne investigadores/as y estudiantes de posgrado interesados en profundizar en el estudio de la mortalidad, la salud y temas afines en las poblaciones de América Latina y el Caribe, independientemente de la región de su adscripción institucional.<br> 
-                        Sus miembros buscan comprender la diversidad de estos procesos, así como los logros y desafíos de los sistemas de salud, al igual que la forma en que viven, enferman, envejecen y mueren las poblaciones de la región.
-                    </p>
+    <div class="main-container">
+        <main class="content">
+            <!-- TAB 1: QUIÉNES SOMOS -->
+            <div id="quienes-somos" class="tab-content active">
+                <div class="section">
+                    <div class="section-header">
+                        Descripción
+                    </div>
+                    <div class="section-content">
+                        <div class="highlight-box">
+                        <p style="font-size: 1.1rem; line-height: 1.8; color: #333; text-align: justify;">
+                            Creada en 2020, la Red de Salud y Mortalidad reúne investigadores/as y estudiantes de posgrado interesados en profundizar en el estudio de la mortalidad, la salud y temas afines en las poblaciones de América Latina y el Caribe, independientemente de la región de su adscripción institucional.<br> 
+                            Sus miembros buscan comprender la diversidad de estos procesos, así como los logros y desafíos de los sistemas de salud, al igual que la forma en que viven, enferman, envejecen y mueren las poblaciones de la región.
+                        </p>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="section">
-                <div class="section-header">
-                    Objetivo
+                <div class="section">
+                    <div class="section-header">
+                        Objetivo
+                    </div>
+                    <div class="section-content">
+                        <div class="highlight-box">
+                            <p style="font-size: 1.1rem; line-height: 1.8; color: #333; text-align: justify; margin: 0;">
+                                El objetivo de la Red consiste en fomentar y consolidar colaboraciones de investigación entre estudiosos de la mortalidad, la salud y temas afines en las poblaciones de América Latina y el Caribe. La Red también se propone consolidarse como un espacio de intercambio académico propiciando el debate y la refl exión en torno a estas temáticas en el marco de actividades puntuales que reúnan a sus miembros. 
+                            </p>
+                        </div>
+                    </div>
                 </div>
-                <div class="section-content">
-                    <div class="highlight-box">
-                        <p style="font-size: 1.1rem; line-height: 1.8; color: #333; text-align: justify; margin: 0;">
-                            El objetivo de la Red consiste en fomentar y consolidar colaboraciones de investigación entre estudiosos de la mortalidad, la salud y temas afines en las poblaciones de América Latina y el Caribe. La Red también se propone consolidarse como un espacio de intercambio académico propiciando el debate y la refl exión en torno a estas temáticas en el marco de actividades puntuales que reúnan a sus miembros. 
+
+                <!-- sección plan de trabajo  -->
+                <div class="section">
+                    <div class="section-header">
+                        Plan de Trabajo
+                    </div>
+                    <div class="section-content">
+                        <div class="highlight-box">
+                            <h3 style="color: #2c2c2c; margin-bottom: 1rem; font-size: 1.2rem; font-weight: 600;">Período 2025-2026</h3>
+                            
+                            <div style="margin-bottom: 1.5rem;">
+                                <div style="margin-bottom: 1.5rem;">
+                                    <p style="color: #333; line-height: 1.7; margin: 0 0 0.5rem 0;">
+                                        <strong>•</strong> Continuar trabajando en el fortalecimiento y la expansión de la red, logrando la inscripción de nuevos miembros: investigadores/as y estudiantes de posgrado interesados/as en la salud, la mortalidad y temáticas afines en América Latina y el Caribe.
+                                    </p>
+                                </div>
+                                
+                                <div style="margin-bottom: 1.5rem;">
+                                    <p style="color: #333; line-height: 1.7; margin: 0 0 0.5rem 0;">
+                                        <strong>•</strong> Organizar las actividades en preparación para el congreso de la ALAP en 2026 (escuela temática sobre mortalidad y salud, mesas redondas y sesiones de trabajo).
+                                    </p>
+                                </div>
+                                
+                                <div style="margin-bottom: 1.5rem;">
+                                    <p style="color: #333; line-height: 1.7; margin: 0 0 0.5rem 0;">
+                                        <strong>•</strong> Organizar actividades conjuntas con miembros de otras redes temáticas de la ALAP, con el objetivo de fortalecer las colaboraciones científicas entre redes:
+                                    </p>
+                                    <div style="background: #f9f9f9; padding: 1rem; margin-top: 0.5rem; border-left: 2px solid #c67438;">
+                                        <p style="margin: 0; font-weight: 600; color: #9f3536;">
+                                            I<sup>er</sup> Seminario internacional sobre Salud y Mortalidad en América Latina
+                                        </p>
+                                        <p style="margin: 0.5rem 0 0 0; color: #666;">
+                                            Organizado en conjunto con la red Pro-Datos: evento presencial en <strong>Montevideo (Uruguay), </strong><strong>septiembre 17 y 18 de 2025.</strong>
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <div style="margin-bottom: 1.5rem;">
+                                    <p style="color: #333; line-height: 1.7; margin: 0 0 0.5rem 0;">
+                                        <strong>•</strong> Realizar actividades inter-congreso entre los miembros de la Red, como seminarios virtuales y/o presenciales, así como instancias de formación e intercambio:
+                                    </p>
+                                    <div style="background: #f9f9f9; padding: 1rem; margin-top: 0.5rem; border-left: 2px solid #054056;">
+                                        <p style="margin: 0; color: #054056; font-weight: 600;">
+                                            Seminario semestral virtual
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <div style="margin-bottom: 0;">
+                                    <p style="color: #333; line-height: 1.7; margin: 0;">
+                                        <strong>•</strong> Publicar un número temático en la revista <em>Estudios Demográficos y Urbanos</em> a partir de las ponencias presentadas en el seminario en Montevideo.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- sección moderadores  -->
+                <div class="section">
+            <div class="section-header">
+                Moderadores
+            </div>
+            <div class="section-content">
+                <div style="background: #f9f9f9; padding: 1.5rem; border-radius: 0; border-left: 3px solid #c67438;">
+                    <h4 style="color: #9f3536; margin-bottom: 1rem;">Actuales (2025-2026)</h4>
+                    <div style="color: #666; line-height: 1.8;">
+                        <p style="margin-bottom: 0.8rem;">
+                            <strong>Jenny García</strong> – INED<br>
+                            Contacto: jenny.garcia@ined.fr
+                        </p>
+                        <p style="margin-bottom: 0.8rem;">
+                            <strong>Beatriz Novak</strong> – CEDUA COLMEX<br>
+                            Contacto: bnovak@colmex.mx
+                        </p>
+                        <p style="margin-bottom: 0;">
+                            <strong>Catalina Torres</strong> – UDELAR<br>
+                            Contacto: catalina.torres@cienciassociales.edu.uy
                         </p>
                     </div>
                 </div>
-            </div>
-
-            <!-- sección plan de trabajo  -->
-            <div class="section">
-                <div class="section-header">
-                    Plan de Trabajo
+                
+                <h3 style="color: #2c2c2c; margin: 2rem 0 1rem 0; font-size: 1.3rem;">Anteriores</h3>
+                
+                <div style="background: #f9f9f9; padding: 1.5rem; border-radius: 0; border-left: 3px solid #054056; margin-bottom: 1rem;">
+                    <h4 style="color: #9f3536; margin-bottom: 1rem;">Periodo 2023-2024</h4>
+                    <ul style="color: #666; line-height: 1.8; margin: 0; padding-left: 1.5rem;">
+                        <li>Jenny García, INED</li>
+                        <li>Beatriz Novak, CEDUA COLMEX, México</li>
+                        <li style="margin-bottom: 0;">Víctor M. García-Guerrero, CEDUA COLMEX, México</li>
+                    </ul>
                 </div>
-                <div class="section-content">
-                    <div class="highlight-box">
-                        <h3 style="color: #2c2c2c; margin-bottom: 1rem; font-size: 1.2rem; font-weight: 600;">Período 2025-2026</h3>
+                
+                <div style="background: #f9f9f9; padding: 1.5rem; border-radius: 0; border-left: 3px solid #9f3536;">
+                    <h4 style="color: #9f3536; margin-bottom: 1rem;">Periodo 2021-2022</h4>
+                    <ul style="color: #666; line-height: 1.8; margin: 0; padding-left: 1.5rem;">
+                        <li style="margin-bottom: 1rem;">Víctor M. García-Guerrero, CEDUA COLMEX, México</li>
+                        <p style="margin: 0; color: #9f3536; font-weight: 600; font-size: 1rem;">
+                            Fundador de la Red
+                        </p>
+                        <p style="margin: 0.3rem 0 0 0; color: #666; font-size: 0.9rem; font-style: italic;">
+                            Creada en 2020
+                        </p>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+                <!-- sección integrantes  -->
+        <div class="section">
+            <div class="section-header">
+                Integrantes
+            </div>
+            <div class="section-content">
+                
+                <div style="background: #f9f9f9; padding: 1.5rem; border-radius: 0; border-left: 3px solid #054056;">
+                    <div style="columns: 1; column-gap: 2rem; color: #666; line-height: 1.8;">
                         
-                        <div style="margin-bottom: 1.5rem;">
-                            <div style="margin-bottom: 1.5rem;">
-                                <p style="color: #333; line-height: 1.7; margin: 0 0 0.5rem 0;">
-                                    <strong>•</strong> Continuar trabajando en el fortalecimiento y la expansión de la red, logrando la inscripción de nuevos miembros: investigadores/as y estudiantes de posgrado interesados/as en la salud, la mortalidad y temáticas afines en América Latina y el Caribe.
-                                </p>
-                            </div>
-                            
-                            <div style="margin-bottom: 1.5rem;">
-                                <p style="color: #333; line-height: 1.7; margin: 0 0 0.5rem 0;">
-                                    <strong>•</strong> Organizar las actividades en preparación para el congreso de la ALAP en 2026 (escuela temática sobre mortalidad y salud, mesas redondas y sesiones de trabajo).
-                                </p>
-                            </div>
-                            
-                            <div style="margin-bottom: 1.5rem;">
-                                <p style="color: #333; line-height: 1.7; margin: 0 0 0.5rem 0;">
-                                    <strong>•</strong> Organizar actividades conjuntas con miembros de otras redes temáticas de la ALAP, con el objetivo de fortalecer las colaboraciones científicas entre redes:
-                                </p>
-                                <div style="background: #f9f9f9; padding: 1rem; margin-top: 0.5rem; border-left: 2px solid #c67438;">
-                                    <p style="margin: 0; font-weight: 600; color: #9f3536;">
-                                        I<sup>er</sup> Seminario internacional sobre Salud y Mortalidad en América Latina
-                                    </p>
-                                    <p style="margin: 0.5rem 0 0 0; color: #666;">
-                                        Organizado en conjunto con la red Pro-Datos: evento presencial en <strong>Montevideo (Uruguay), </strong><strong>septiembre 17 y 18 de 2025.</strong>
-                                    </p>
-                                </div>
-                            </div>
-                            
-                            <div style="margin-bottom: 1.5rem;">
-                                <p style="color: #333; line-height: 1.7; margin: 0 0 0.5rem 0;">
-                                    <strong>•</strong> Realizar actividades inter-congreso entre los miembros de la Red, como seminarios virtuales y/o presenciales, así como instancias de formación e intercambio:
-                                </p>
-                                <div style="background: #f9f9f9; padding: 1rem; margin-top: 0.5rem; border-left: 2px solid #054056;">
-                                    <p style="margin: 0; color: #054056; font-weight: 600;">
-                                        Seminario semestral virtual
-                                    </p>
-                                </div>
-                            </div>
-                            
-                            <div style="margin-bottom: 0;">
-                                <p style="color: #333; line-height: 1.7; margin: 0;">
-                                    <strong>•</strong> Publicar un número temático en la revista <em>Estudios Demográficos y Urbanos</em> a partir de las ponencias presentadas en el seminario en Montevideo.
-                                </p>
-                            </div>
+                        <div style="margin-bottom: 1.5rem; break-inside: avoid;">
+                            <p style="margin: 0;">
+                                <strong style="color: #2c2c2c;">Aburto, José Manuel</strong> <span style="color: #9f3536; font-size: 0.9rem;">(México)</span><br>
+                                <em>London School of Hygiene and Tropical Medicine, and University of Oxford (Reino Unido)</em><br>
+                                Email: jose.aburto@lshtm.ac.uk
+                            </p>
                         </div>
+                        
+                        <div style="margin-bottom: 1.5rem; break-inside: avoid;">
+                            <p style="margin: 0;">
+                                <strong style="color: #2c2c2c;">Acosta, Enrique</strong> <span style="color: #9f3536; font-size: 0.9rem;">(Colombia)</span><br>
+                                <em>Centro de Estudios Demográficos (España)</em><br>
+                                Página: <a href="https://scholar.google.com/citations?user=TvP3KiIAAAAJ&hl=en" target="_blank" style="color: #054056;">Google Scholar</a>
+                            </p>
+                        </div>
+                        
+                        <div style="margin-bottom: 1.5rem; break-inside: avoid;">
+                            <p style="margin: 0;">
+                                <strong style="color: #2c2c2c;">Agudelo Botero, Marcela</strong> <span style="color: #9f3536; font-size: 0.9rem;">(Colombia)</span><br>
+                                <em>Centro de Investigación en Políticas, Población y Salud. Facultad de Medicina. UNAM (México)</em><br>
+                                Página: <a href="https://orcid.org/0000-0002-4489-4224" target="_blank" style="color: #054056;">ORCID</a>
+                            </p>
+                        </div>
+                        
+                        <div style="margin-bottom: 1.5rem; break-inside: avoid;">
+                            <p style="margin: 0;">
+                                <strong style="color: #2c2c2c;">Álvarez-Vaz, Ramón</strong> <span style="color: #9f3536; font-size: 0.9rem;">(Uruguay)</span><br>
+                                <em>IESTA (Instituto de Estadística), Facultad de Ciencias Económicas y de Administración, Universidad de la República (Uruguay)</em><br>
+                                Email: Ramon.alvarez@fcea.edu.uy
+                            </p>
+                        </div>
+                        
+                        <div style="margin-bottom: 1.5rem; break-inside: avoid;">
+                            <p style="margin: 0;">
+                                <strong style="color: #2c2c2c;">Baptista, Emerson</strong> <span style="color: #9f3536; font-size: 0.9rem;">(Brasil)</span><br>
+                                <em>Centro de Estudios Demográficos, Urbanos y Ambientales, COLMEX (México)</em><br>
+                                Página: <a href="https://scholar.google.com/citations?user=H-c6gZAAAAAJ&hl=pt-BR" target="_blank" style="color: #054056;">Google Scholar</a>
+                            </p>
+                        </div>
+                        
+                        <div style="margin-bottom: 1.5rem; break-inside: avoid;">
+                            <p style="margin: 0;">
+                                <strong style="color: #2c2c2c;">Bathory, Florencia</strong> <span style="color: #9f3536; font-size: 0.9rem;">(Argentina)</span><br>
+                                <em>European Doctoral School of Demography - Institut national d'études démographiques (Francia)</em><br>
+                                Página: <a href="https://orcid.org/0000-0002-2518-5422" target="_blank" style="color: #054056;">ORCID</a>
+                            </p>
+                        </div>
+                        
+                        <div style="margin-bottom: 1.5rem; break-inside: avoid;">
+                            <p style="margin: 0;">
+                                <strong style="color: #2c2c2c;">Beltrán Becerra, Juan Francisco</strong> <span style="color: #9f3536; font-size: 0.9rem;">(Colombia)</span><br>
+                                <em>El Colegio de México (México)</em><br>
+                                Email: jbeltran@colmex.mx
+                            </p>
+                        </div>
+                        
+                        <div style="margin-bottom: 1.5rem; break-inside: avoid;">
+                            <p style="margin: 0;">
+                                <strong style="color: #2c2c2c;">Beltrán-Sánchez, Hiram</strong> <span style="color: #9f3536; font-size: 0.9rem;">(México)</span><br>
+                                <em>Department of Community Health Sciences-UCLA (Estados Unidos)</em><br>
+                                Email: beltrans@ucla.edu
+                            </p>
+                        </div>
+                        
+                        <div style="margin-bottom: 1.5rem; break-inside: avoid;">
+                            <p style="margin: 0;">
+                                <strong style="color: #2c2c2c;">Bertone, Carola Leticia</strong> <span style="color: #9f3536; font-size: 0.9rem;">(Argentina)</span><br>
+                                <em>Consejo Nacional de Investigaciones Científicas y Técnica (CONICET); Universidad Nacional de La Rioja (UNLAR), Centro de Estudios e Innovación Tecnológica (CENIIT)</em><br>
+                                Página: <a href="https://orcid.org/0000-0001-9022-0688" target="_blank" style="color: #054056;">ORCID</a>
+                            </p>
+                        </div>
+                        
+                        <div style="margin-bottom: 1.5rem; break-inside: avoid;">
+                            <p style="margin: 0;">
+                                <strong style="color: #2c2c2c;">Bramajo, Octavio</strong> <span style="color: #9f3536; font-size: 0.9rem;">(Argentina)</span><br>
+                                <em>University of Texas Medical Branch (Estados Unidos)</em>
+                            </p>
+                        </div>
+                        
+                        <div style="margin-bottom: 1.5rem; break-inside: avoid;">
+                            <p style="margin: 0;">
+                                <strong style="color: #2c2c2c;">Brenes Camacho, Gilbert</strong> <span style="color: #9f3536; font-size: 0.9rem;">(Costa Rica)</span><br>
+                                <em>Centro Centroamericano de Población CCP Universidad de Costa Rica</em>
+                            </p>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem; break-inside: avoid;">
+                            <p style="margin: 0;">
+                                <strong style="color: #2c2c2c;">Calderón Jaramillo, Mariana</strong> <span style="color: #9f3536; font-size: 0.9rem;">(Colombia)</span><br>
+                                <em>Centre d'Estudis Demogràfics (España)</em><br>
+                                Página: <a href="https://orcid.org/0000-0002-2722-6590" target="_blank" style="color: #054056;">ORCID</a>
+                            </p>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem; break-inside: avoid;">
+                            <p style="margin: 0;">
+                                <strong style="color: #2c2c2c;">Canudas-Romo, Vladimir</strong> <span style="color: #9f3536; font-size: 0.9rem;">(México)</span><br>
+                                <em>School of Demography, College of Arts and Social Sciences, Australian National University (Australia)</em><br>
+                                Página: <a href="https://researchportalplus.anu.edu.au/en/persons/vladimir-canudas-romo" target="_blank" style="color: #054056;">Research Portal Plus</a>
+                            </p>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem; break-inside: avoid;">
+                            <p style="margin: 0;">
+                                <strong style="color: #2c2c2c;">Cardona Arango, Doris</strong><br>
+                                <em>Universidad CES (Colombia)</em>
+                            </p>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem; break-inside: avoid;">
+                            <p style="margin: 0;">
+                                <strong style="color: #2c2c2c;">Correa Marin, Gerardo Enrique</strong> <span style="color: #9f3536; font-size: 0.9rem;">(Venezuela)</span><br>
+                                <em>Universidad Católica Andrés Bello (Venezuela)</em><br>
+                                Email: correage@gmail.com
+                            </p>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem; break-inside: avoid;">
+                            <p style="margin: 0;">
+                                <strong style="color: #2c2c2c;">Dávila Cervantes, Claudio Alberto</strong> <span style="color: #9f3536; font-size: 0.9rem;">(México)</span><br>
+                                <em>Facultad Latinoamericana de Ciencias Sociales México (FLACSO, México)</em><br>
+                                Página: <a href="https://scholar.google.com.mx/citations?user=1Q3DfWkAAAAJ&hl=es&authuser=1" target="_blank" style="color: #054056;">Google Scholar</a>
+                            </p>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem; break-inside: avoid;">
+                            <p style="margin: 0;">
+                                <strong style="color: #2c2c2c;">De Armas, Gonzalo Gabriel</strong> <span style="color: #9f3536; font-size: 0.9rem;">(Uruguay)</span><br>
+                                <em>Programa de Poblacion, Facultad de Ciencias Sociales, Universidad de la República (Uruguay)</em><br>
+                                Página: <a href="https://orcid.org/0000-0002-4515-0649" target="_blank" style="color: #054056;">ORCID</a>
+                            </p>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem; break-inside: avoid;">
+                            <p style="margin: 0;">
+                                <strong style="color: #2c2c2c;">Díaz, Maria del Pilar</strong><br>
+                                <em>Universidad Nacional de Córdoba</em>                   
+                            </p>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem; break-inside: avoid;">
+                            <p style="margin: 0;">
+                                <strong style="color: #2c2c2c;">Di Lego, Vanessa</strong> <span style="color: #9f3536; font-size: 0.9rem;">(Brasil)</span><br>
+                                <em>Departamento de Demografía Universidade Federal de Minas Gerais (Brasil)</em><br>
+                                Página: <a href="https://scholar.google.com/citations?user=3YvvHBcAAAAJ&hl=en" target="_blank" style="color: #054056;">Google Scholar</a>
+                            </p>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem; break-inside: avoid;">
+                            <p style="margin: 0;">
+                                <strong style="color: #2c2c2c;">Duquina Mateus, Verônica Francis</strong> <span style="color: #9f3536; font-size: 0.9rem;">(Brasil)</span><br>
+                                <em>Cedeplar UFMG (Brasil)</em><br>
+                                Email: duquinna1@gmail.com
+                            </p>
+                        </div>
+                        
+                        <div style="margin-bottom: 1.5rem; break-inside: avoid;">
+                            <p style="margin: 0;">
+                                <strong style="color: #2c2c2c;">García, Jenny</strong> <span style="color: #9f3536; font-size: 0.9rem;">(Venezuela)</span><br>
+                                <em>Institut national d'études démographiques (Francia)</em><br>
+                                Página: <a href="https://orcid.org/0000-0001-9007-7324" target="_blank" style="color: #054056;">ORCID</a>
+                            </p>
+                        </div>
+                        
+                        <div style="margin-bottom: 1.5rem; break-inside: avoid;">
+                            <p style="margin: 0;">
+                                <strong style="color: #2c2c2c;">García González, Juan Manuel</strong> <span style="color: #9f3536; font-size: 0.9rem;">(España)</span><br>
+                                <em>Universidad Pablo de Olavide (España)</em><br>
+                                Página: <a href="https://scholar.google.es/citations?hl=es&user=lAkJQhEAAAAJ" target="_blank" style="color: #054056;">Google Scholar</a>
+                            </p>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem; break-inside: avoid;">
+                            <p style="margin: 0;">
+                                <strong style="color: #2c2c2c;">García Guerrero, Victor Manuel</strong> <span style="color: #9f3536; font-size: 0.9rem;">(México)</span><br>
+                                <em>Centro de Estudios Demográficos, Urbanos y Ambientales, COLMEX (México)</em><br>
+                                Página: <a href="https://scholar.google.com/citations?user=y8CSqPQAAAAJ&hl=es" target="_blank" style="color: #054056;">Google Scholar</a>
+                            </p>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem; break-inside: avoid;">
+                            <p style="margin: 0;">
+                                <strong style="color: #2c2c2c;">Gargiulo, Maria</strong> <span style="color: #9f3536; font-size: 0.9rem;">(Estados Unidos)</span><br>
+                                <em>London School of Hygiene and Tropical Medicine (Reino Unido)</em><br>
+                                Página: <a href="https://scholar.google.com/citations?user=GWYQSc0AAAAJ&hl=en" target="_blank" style="color: #054056;">Google Scholar</a>
+                            </p>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem; break-inside: avoid;">
+                            <p style="margin: 0;">
+                                <strong style="color: #2c2c2c;">Gonzalez, Leandro Mariano</strong> <span style="color: #9f3536; font-size: 0.9rem;">(Argentina)</span><br>
+                                <em>CIECS-CONICET/UN Córdoba</em><br>
+                                Página: <a href="https://scholar.google.com/citations?user=i4eB75QAAAAJ&hl=es" target="_blank" style="color: #054056;">Google Scholar</a>
+                            </p>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem; break-inside: avoid;">
+                            <p style="margin: 0;">
+                                <strong style="color: #2c2c2c;">Grushka, Carlos</strong> <span style="color: #9f3536; font-size: 0.9rem;">(Argentina)</span><br>
+                                <em>Universidad de Buenos Aires (Argentina)</em><br>
+                                Página: <a href="https://orcid.org/0000-0002-3140-7300" target="_blank" style="color: #054056;">ORCID</a>
+                            </p>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem; break-inside: avoid;">
+                            <p style="margin: 0;">
+                                <strong style="color: #2c2c2c;">Jimenez Solis, Sebastian Antonio</strong><br>
+                                <em>Universidad Nacional Autónoma de México</em>
+                            </p>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem; break-inside: avoid;">
+                            <p style="margin: 0;">
+                                <strong style="color: #2c2c2c;">Lara Castañeda, Elder</strong> <span style="color: #9f3536; font-size: 0.9rem;">(México)</span><br>
+                                <em>Interdisciplinary Centre on Population Dynamics (Dinamarca), European Doctoral School of Demography - Institut national d'études démographiques (Francia)</em><br>
+                                Email: elder.lara.cas@gmail.com
+                            </p>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem; break-inside: avoid;">
+                            <p style="margin: 0;">
+                                <strong style="color: #2c2c2c;">Lima, Everton</strong> <span style="color: #9f3536; font-size: 0.9rem;">(Brasil)</span><br>
+                                <em>Departamento de Demografía-UNICAMP (Brasil)</em><br>
+                                Email: evertone@unicamp.br
+                            </p>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem; break-inside: avoid;">
+                            <p style="margin: 0;">
+                                <strong style="color: #2c2c2c;">Lozano Keymolen, Daniel</strong> <span style="color: #9f3536; font-size: 0.9rem;">(México)</span><br>
+                                <em>Universidad Autónoma del Estado de México (México)</em><br>
+                                Página: <a href="https://scholar.google.com/citations?user=QguhtDgAAAAJ&hl=en" target="_blank" style="color: #054056;">Google Scholar</a>
+                            </p>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem; break-inside: avoid;">
+                            <p style="margin: 0;">
+                                <strong style="color: #2c2c2c;">Manzelli, Hernán</strong> <span style="color: #9f3536; font-size: 0.9rem;">(Argentina)</span><br>
+                                <em>Centro de Estudios de Población-CONICET (Argentina)</em><br>
+                                Email: hernan@cenep.org.ar
+                            </p>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem; break-inside: avoid;">
+                            <p style="margin: 0;">
+                                <strong style="color: #2c2c2c;">McEniry, Mary</strong> <span style="color: #9f3536; font-size: 0.9rem;">(Estados Unidos)</span><br>
+                                <em>Universidad de Wisconsin-Madison</em>
+                            </p>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem; break-inside: avoid;">
+                            <p style="margin: 0;">
+                                <strong style="color: #2c2c2c;">Montenegro Ramirez, Paola Constanza</strong><br>
+                                <em>Profamilia</em>
+                            </p>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem; break-inside: avoid;">
+                            <p style="margin: 0;">
+                                <strong style="color: #2c2c2c;">Navarro, Rafael</strong><br>
+                                <em>NIDI (Países Bajos)</em>
+                            </p>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem; break-inside: avoid;">
+                            <p style="margin: 0;">
+                                <strong style="color: #2c2c2c;">Novak, Beatriz</strong> <span style="color: #9f3536; font-size: 0.9rem;">(Argentina)</span><br>
+                                <em>Centro de Estudios Demográficos, Urbanos y Ambientales, COLMEX (México)</em><br>
+                                Página: <a href="https://cedua.colmex.mx/personal-academico/novak-beatriz/semblanza" target="_blank" style="color: #054056;">COLMEX</a>
+                            </p>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem; break-inside: avoid;">
+                            <p style="margin: 0;">
+                                <strong style="color: #2c2c2c;">Paredes Della Croce, Mariana</strong> <span style="color: #9f3536; font-size: 0.9rem;">(Uruguay)</span><br>
+                                <em>Programa de Poblacion, Facultad de Ciencias Sociales, Universidad de la República (Uruguay)</em><br>
+                                Página: <a href="https://cienciassociales.edu.uy/unidad-multidisciplinaria/programa-de-poblacion/equipo-docente/mariana-paredes/" target="_blank" style="color: #054056;">Universidad de la República</a>
+                            </p>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem; break-inside: avoid;">
+                            <p style="margin: 0;">
+                                <strong style="color: #2c2c2c;">Passarelli-Araujo, Hisrael</strong> <span style="color: #9f3536; font-size: 0.9rem;">(Brasil)</span><br>
+                                <em>Federal University of Minas Gerais (Brasil)</em><br>
+                                Página: <a href="https://orcid.org/0000-0003-3534-8392" target="_blank" style="color: #054056;">ORCID</a>
+                            </p>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem; break-inside: avoid;">
+                            <p style="margin: 0;">
+                                <strong style="color: #2c2c2c;">Permanyer Ugartemendia, Iñaki</strong> <span style="color: #9f3536; font-size: 0.9rem;">(España)</span><br>
+                                <em>Centro de Estudios Demográficos (España)</em><br>
+                                Página: <a href="https://orcid.org/0000-0002-7051-5144" target="_blank" style="color: #054056;">ORCID</a>
+                            </p>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem; break-inside: avoid;">
+                            <p style="margin: 0;">
+                                <strong style="color: #2c2c2c;">Peters, Paul</strong><br>
+                                <em>Carleton University</em>
+                            </p>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem; break-inside: avoid;">
+                            <p style="margin: 0;">
+                                <strong style="color: #2c2c2c;">Pollero Beheregaray, Raquel</strong> <span style="color: #9f3536; font-size: 0.9rem;">(Uruguay)</span><br>
+                                <em>Programa de Población, Facultad de Ciencias Sociales, Universidad de la República (Uruguay)</em>
+                            </p>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem; break-inside: avoid;">
+                            <p style="margin: 0;">
+                                <strong style="color: #2c2c2c;">Queiroz, Bernardo L.</strong> <span style="color: #9f3536; font-size: 0.9rem;">(Brasil)</span><br>
+                                <em>Departamento de Demografía-CEDEPLAR-UFMG (Brasil)</em><br>
+                                Email: lanza@cedeplar.ufmg.br
+                            </p>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem; break-inside: avoid;">
+                            <p style="margin: 0;">
+                                <strong style="color: #2c2c2c;">Renteria, Elisenda</strong><br>
+                                <em>Centre d'Estudis Demogràfics (España)</em>
+                            </p>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem; break-inside: avoid;">
+                            <p style="margin: 0;">
+                                <strong style="color: #2c2c2c;">Rodrigues Fechine, Valéria Maria</strong><br>
+                                <em>Universidade de Brasilia</em>
+                            </p>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem; break-inside: avoid;">
+                            <p style="margin: 0;">
+                                <strong style="color: #2c2c2c;">Rojas Huerta, Abigail Vanessa</strong> <span style="color: #9f3536; font-size: 0.9rem;">(México)</span><br>
+                                <em>El Colegio de la Frontera Norte (México)</em><br>
+                                Página: <a href="https://orcid.org/0000-0002-3032-8627" target="_blank" style="color: #054056;">ORCID</a>
+                            </p>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem; break-inside: avoid;">
+                            <p style="margin: 0;">
+                                <strong style="color: #2c2c2c;">Sandoval, Moises H.</strong> <span style="color: #9f3536; font-size: 0.9rem;">(Chile)</span><br>
+                                <em>Universidad de Chile</em><br>
+                                Página: <a href="https://orcid.org/0000-0003-0112-2045" target="_blank" style="color: #054056;">ORCID</a>
+                            </p>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem; break-inside: avoid;">
+                            <p style="margin: 0;">
+                                <strong style="color: #2c2c2c;">Santos Mercedes, Kary Desiree</strong> <span style="color: #9f3536; font-size: 0.9rem;">(República Dominicana)</span><br>
+                                <em>Universidade de Brasilia (Brasil)</em><br>
+                                Página: <a href="https://orcid.org/0000-0001-7010-2027" target="_blank" style="color: #054056;">ORCID</a>
+                            </p>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem; break-inside: avoid;">
+                            <p style="margin: 0;">
+                                <strong style="color: #2c2c2c;">Soarez Bertho, Ana Carolina</strong> <span style="color: #9f3536; font-size: 0.9rem;">(Brasil)</span><br>
+                                <em>Escola Nacional de Ciências Estatísticas (ENCE/IBGE) (Brasil)</em><br>
+                                Página: <a href="http://lattes.cnpq.br/5333953667454993" target="_blank" style="color: #054056;">Lattes</a>
+                            </p>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem; break-inside: avoid;">
+                            <p style="margin: 0;">
+                                <strong style="color: #2c2c2c;">Spijker, Jeroen</strong><br>
+                                <em>Centre d'Estudis Demogràfics (España)</em>
+                            </p>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem; break-inside: avoid;">
+                            <p style="margin: 0;">
+                                <strong style="color: #2c2c2c;">Torres, Catalina</strong> <span style="color: #9f3536; font-size: 0.9rem;">(Colombia)</span><br>
+                                <em>Programa de Poblacion, Facultad de Ciencias Sociales, Universidad de la República (Uruguay)</em><br>
+                                Página: <a href="https://cienciassociales.edu.uy/unidad-multidisciplinaria/programa-de-poblacion/equipo-docente/catalina-torres/" target="_blank" style="color: #054056;">Universidad de la República</a>
+                            </p>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem; break-inside: avoid;">
+                            <p style="margin: 0;">
+                                <strong style="color: #2c2c2c;">Valdebenito, Carlos E.</strong><br>
+                                <em>Pontificia Universidad Católica de Valparaíso</em>
+                            </p>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem; break-inside: avoid;">
+                            <p style="margin: 0;">
+                                <strong style="color: #2c2c2c;">Vázquez, Paola</strong> <span style="color: #9f3536; font-size: 0.9rem;">(México)</span><br>
+                                <em>Interdisciplinary Centre on Population Dynamics-SDU (Dinamarca)</em><br>
+                                Email: pavaz@sdu.dk
+                            </p>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem; break-inside: avoid;">
+                            <p style="margin: 0;">
+                                <strong style="color: #2c2c2c;">Yangali Orihuela, Marcial</strong><br>
+                                <em>Centro de Estudios Demográficos, Urbanos y Ambientales, Colmex (México)</em>
+                            </p>
+                        </div>
+
+                        <div style="margin-bottom: 0; break-inside: avoid;">
+                            <p style="margin: 0;">
+                                <strong style="color: #2c2c2c;">Zueras, Pilar</strong> <span style="color: #9f3536; font-size: 0.9rem;">(España)</span><br>
+                                <em>Centre d'Estudis Demogràfics (España)</em><br>
+                                Página: <a href="https://scholar.google.es/citations?hl=es&user=0eBBlc0AAAAJ" target="_blank" style="color: #054056;">Google Scholar</a>
+                            </p>
+                        </div>
+
                     </div>
                 </div>
             </div>
-
-            <!-- sección moderadores  -->
-            <div class="section">
-    <div class="section-header">
-        Moderadores
-    </div>
-    <div class="section-content">
-        <div style="background: #f9f9f9; padding: 1.5rem; border-radius: 0; border-left: 3px solid #c67438;">
-            <h4 style="color: #9f3536; margin-bottom: 1rem;">Actuales (2025-2026)</h4>
-            <div style="color: #666; line-height: 1.8;">
-                <p style="margin-bottom: 0.8rem;">
-                    <strong>Jenny García</strong> – INED<br>
-                    Contacto: jenny.garcia@ined.fr
-                </p>
-                <p style="margin-bottom: 0.8rem;">
-                    <strong>Beatriz Novak</strong> – CEDUA COLMEX<br>
-                    Contacto: bnovak@colmex.mx
-                </p>
-                <p style="margin-bottom: 0;">
-                    <strong>Catalina Torres</strong> – UDELAR<br>
-                    Contacto: catalina.torres@cienciassociales.edu.uy
-                </p>
-            </div>
         </div>
-        
-        <h3 style="color: #2c2c2c; margin: 2rem 0 1rem 0; font-size: 1.3rem;">Anteriores</h3>
-        
-        <div style="background: #f9f9f9; padding: 1.5rem; border-radius: 0; border-left: 3px solid #054056; margin-bottom: 1rem;">
-            <h4 style="color: #9f3536; margin-bottom: 1rem;">Periodo 2023-2024</h4>
-            <ul style="color: #666; line-height: 1.8; margin: 0; padding-left: 1.5rem;">
-                <li>Jenny García, INED</li>
-                <li>Beatriz Novak, CEDUA COLMEX, México</li>
-                <li style="margin-bottom: 0;">Víctor M. García-Guerrero, CEDUA COLMEX, México</li>
-            </ul>
-        </div>
-        
-        <div style="background: #f9f9f9; padding: 1.5rem; border-radius: 0; border-left: 3px solid #9f3536;">
-            <h4 style="color: #9f3536; margin-bottom: 1rem;">Periodo 2021-2022</h4>
-            <ul style="color: #666; line-height: 1.8; margin: 0; padding-left: 1.5rem;">
-                <li style="margin-bottom: 1rem;">Víctor M. García-Guerrero, CEDUA COLMEX, México</li>
-                <p style="margin: 0; color: #9f3536; font-weight: 600; font-size: 1rem;">
-                    Fundador de la Red
-                </p>
-                <p style="margin: 0.3rem 0 0 0; color: #666; font-size: 0.9rem; font-style: italic;">
-                    Creada en 2020
-                </p>
-            </ul>
-        </div>
-    </div>
-</div>
-
-            <!-- sección integrantes  -->
-<div class="section">
-    <div class="section-header">
-        Integrantes
-    </div>
-    <div class="section-content">
-        
-        <div style="background: #f9f9f9; padding: 1.5rem; border-radius: 0; border-left: 3px solid #054056;">
-            <div style="columns: 1; column-gap: 2rem; color: #666; line-height: 1.8;">
-                
-                <div style="margin-bottom: 1.5rem; break-inside: avoid;">
-                    <p style="margin: 0;">
-                        <strong style="color: #2c2c2c;">Aburto, José Manuel</strong> <span style="color: #9f3536; font-size: 0.9rem;">(México)</span><br>
-                        <em>London School of Hygiene and Tropical Medicine, and University of Oxford (Reino Unido)</em><br>
-                        Email: jose.aburto@lshtm.ac.uk
-                    </p>
-                </div>
-                
-                <div style="margin-bottom: 1.5rem; break-inside: avoid;">
-                    <p style="margin: 0;">
-                        <strong style="color: #2c2c2c;">Acosta, Enrique</strong> <span style="color: #9f3536; font-size: 0.9rem;">(Colombia)</span><br>
-                        <em>Centro de Estudios Demográficos (España)</em><br>
-                        Página: <a href="https://scholar.google.com/citations?user=TvP3KiIAAAAJ&hl=en" target="_blank" style="color: #054056;">Google Scholar</a>
-                    </p>
-                </div>
-                
-                <div style="margin-bottom: 1.5rem; break-inside: avoid;">
-                    <p style="margin: 0;">
-                        <strong style="color: #2c2c2c;">Agudelo Botero, Marcela</strong> <span style="color: #9f3536; font-size: 0.9rem;">(Colombia)</span><br>
-                        <em>Centro de Investigación en Políticas, Población y Salud. Facultad de Medicina. UNAM (México)</em><br>
-                        Página: <a href="https://orcid.org/0000-0002-4489-4224" target="_blank" style="color: #054056;">ORCID</a>
-                    </p>
-                </div>
-                
-                <div style="margin-bottom: 1.5rem; break-inside: avoid;">
-                    <p style="margin: 0;">
-                        <strong style="color: #2c2c2c;">Álvarez-Vaz, Ramón</strong> <span style="color: #9f3536; font-size: 0.9rem;">(Uruguay)</span><br>
-                        <em>IESTA (Instituto de Estadística), Facultad de Ciencias Económicas y de Administración, Universidad de la República (Uruguay)</em><br>
-                        Email: Ramon.alvarez@fcea.edu.uy
-                    </p>
-                </div>
-                
-                <div style="margin-bottom: 1.5rem; break-inside: avoid;">
-                    <p style="margin: 0;">
-                        <strong style="color: #2c2c2c;">Baptista, Emerson</strong> <span style="color: #9f3536; font-size: 0.9rem;">(Brasil)</span><br>
-                        <em>Centro de Estudios Demográficos, Urbanos y Ambientales, COLMEX (México)</em><br>
-                        Página: <a href="https://scholar.google.com/citations?user=H-c6gZAAAAAJ&hl=pt-BR" target="_blank" style="color: #054056;">Google Scholar</a>
-                    </p>
-                </div>
-                
-                <div style="margin-bottom: 1.5rem; break-inside: avoid;">
-                    <p style="margin: 0;">
-                        <strong style="color: #2c2c2c;">Bathory, Florencia</strong> <span style="color: #9f3536; font-size: 0.9rem;">(Argentina)</span><br>
-                        <em>European Doctoral School of Demography - Institut national d'études démographiques (Francia)</em><br>
-                        Página: <a href="https://orcid.org/0000-0002-2518-5422" target="_blank" style="color: #054056;">ORCID</a>
-                    </p>
-                </div>
-                
-                <div style="margin-bottom: 1.5rem; break-inside: avoid;">
-                    <p style="margin: 0;">
-                        <strong style="color: #2c2c2c;">Beltrán Becerra, Juan Francisco</strong> <span style="color: #9f3536; font-size: 0.9rem;">(Colombia)</span><br>
-                        <em>El Colegio de México (México)</em><br>
-                        Email: jbeltran@colmex.mx
-                    </p>
-                </div>
-                
-                <div style="margin-bottom: 1.5rem; break-inside: avoid;">
-                    <p style="margin: 0;">
-                        <strong style="color: #2c2c2c;">Beltrán-Sánchez, Hiram</strong> <span style="color: #9f3536; font-size: 0.9rem;">(México)</span><br>
-                        <em>Department of Community Health Sciences-UCLA (Estados Unidos)</em><br>
-                        Email: beltrans@ucla.edu
-                    </p>
-                </div>
-                
-                <div style="margin-bottom: 1.5rem; break-inside: avoid;">
-                    <p style="margin: 0;">
-                        <strong style="color: #2c2c2c;">Bertone, Carola Leticia</strong> <span style="color: #9f3536; font-size: 0.9rem;">(Argentina)</span><br>
-                        <em>Consejo Nacional de Investigaciones Científicas y Técnica (CONICET); Universidad Nacional de La Rioja (UNLAR), Centro de Estudios e Innovación Tecnológica (CENIIT)</em><br>
-                        Página: <a href="https://orcid.org/0000-0001-9022-0688" target="_blank" style="color: #054056;">ORCID</a>
-                    </p>
-                </div>
-                
-                <div style="margin-bottom: 1.5rem; break-inside: avoid;">
-                    <p style="margin: 0;">
-                        <strong style="color: #2c2c2c;">Bramajo, Octavio</strong> <span style="color: #9f3536; font-size: 0.9rem;">(Argentina)</span><br>
-                        <em>University of Texas Medical Branch (Estados Unidos)</em>
-                    </p>
-                </div>
-                
-                <div style="margin-bottom: 1.5rem; break-inside: avoid;">
-                    <p style="margin: 0;">
-                        <strong style="color: #2c2c2c;">Brenes Camacho, Gilbert</strong> <span style="color: #9f3536; font-size: 0.9rem;">(Costa Rica)</span><br>
-                        <em>Centro Centroamericano de Población CCP Universidad de Costa Rica</em>
-                    </p>
-                </div>
-
-                <div style="margin-bottom: 1.5rem; break-inside: avoid;">
-                    <p style="margin: 0;">
-                        <strong style="color: #2c2c2c;">Calderón Jaramillo, Mariana</strong> <span style="color: #9f3536; font-size: 0.9rem;">(Colombia)</span><br>
-                        <em>Centre d'Estudis Demogràfics (España)</em><br>
-                        Página: <a href="https://orcid.org/0000-0002-2722-6590" target="_blank" style="color: #054056;">ORCID</a>
-                    </p>
-                </div>
-
-                <div style="margin-bottom: 1.5rem; break-inside: avoid;">
-                    <p style="margin: 0;">
-                        <strong style="color: #2c2c2c;">Canudas-Romo, Vladimir</strong> <span style="color: #9f3536; font-size: 0.9rem;">(México)</span><br>
-                        <em>School of Demography, College of Arts and Social Sciences, Australian National University (Australia)</em><br>
-                        Página: <a href="https://researchportalplus.anu.edu.au/en/persons/vladimir-canudas-romo" target="_blank" style="color: #054056;">Research Portal Plus</a>
-                    </p>
-                </div>
-
-                <div style="margin-bottom: 1.5rem; break-inside: avoid;">
-                    <p style="margin: 0;">
-                        <strong style="color: #2c2c2c;">Cardona Arango, Doris</strong><br>
-                        <em>Universidad CES (Colombia)</em>
-                    </p>
-                </div>
-
-                <div style="margin-bottom: 1.5rem; break-inside: avoid;">
-                    <p style="margin: 0;">
-                        <strong style="color: #2c2c2c;">Correa Marin, Gerardo Enrique</strong> <span style="color: #9f3536; font-size: 0.9rem;">(Venezuela)</span><br>
-                        <em>Universidad Católica Andrés Bello (Venezuela)</em><br>
-                        Email: correage@gmail.com
-                    </p>
-                </div>
-
-                <div style="margin-bottom: 1.5rem; break-inside: avoid;">
-                    <p style="margin: 0;">
-                        <strong style="color: #2c2c2c;">Dávila Cervantes, Claudio Alberto</strong> <span style="color: #9f3536; font-size: 0.9rem;">(México)</span><br>
-                        <em>Facultad Latinoamericana de Ciencias Sociales México (FLACSO, México)</em><br>
-                        Página: <a href="https://scholar.google.com.mx/citations?user=1Q3DfWkAAAAJ&hl=es&authuser=1" target="_blank" style="color: #054056;">Google Scholar</a>
-                    </p>
-                </div>
-
-                <div style="margin-bottom: 1.5rem; break-inside: avoid;">
-                    <p style="margin: 0;">
-                        <strong style="color: #2c2c2c;">De Armas, Gonzalo Gabriel</strong> <span style="color: #9f3536; font-size: 0.9rem;">(Uruguay)</span><br>
-                        <em>Programa de Poblacion, Facultad de Ciencias Sociales, Universidad de la República (Uruguay)</em><br>
-                        Página: <a href="https://orcid.org/0000-0002-4515-0649" target="_blank" style="color: #054056;">ORCID</a>
-                    </p>
-                </div>
-
-                <div style="margin-bottom: 1.5rem; break-inside: avoid;">
-                    <p style="margin: 0;">
-                        <strong style="color: #2c2c2c;">Díaz, Maria del Pilar</strong><br>
-                        <em>Universidad Nacional de Córdoba</em>                   
-                    </p>
-                </div>
-
-                <div style="margin-bottom: 1.5rem; break-inside: avoid;">
-                    <p style="margin: 0;">
-                        <strong style="color: #2c2c2c;">Di Lego, Vanessa</strong> <span style="color: #9f3536; font-size: 0.9rem;">(Brasil)</span><br>
-                        <em>Departamento de Demografía Universidade Federal de Minas Gerais (Brasil)</em><br>
-                        Página: <a href="https://scholar.google.com/citations?user=3YvvHBcAAAAJ&hl=en" target="_blank" style="color: #054056;">Google Scholar</a>
-                    </p>
-                </div>
-
-                <div style="margin-bottom: 1.5rem; break-inside: avoid;">
-                    <p style="margin: 0;">
-                        <strong style="color: #2c2c2c;">Duquina Mateus, Verônica Francis</strong> <span style="color: #9f3536; font-size: 0.9rem;">(Brasil)</span><br>
-                        <em>Cedeplar UFMG (Brasil)</em><br>
-                        Email: duquinna1@gmail.com
-                    </p>
-                </div>
-                
-                <div style="margin-bottom: 1.5rem; break-inside: avoid;">
-                    <p style="margin: 0;">
-                        <strong style="color: #2c2c2c;">García, Jenny</strong> <span style="color: #9f3536; font-size: 0.9rem;">(Venezuela)</span><br>
-                        <em>Institut national d'études démographiques (Francia)</em><br>
-                        Página: <a href="https://orcid.org/0000-0001-9007-7324" target="_blank" style="color: #054056;">ORCID</a>
-                    </p>
-                </div>
-                
-                <div style="margin-bottom: 1.5rem; break-inside: avoid;">
-                    <p style="margin: 0;">
-                        <strong style="color: #2c2c2c;">García González, Juan Manuel</strong> <span style="color: #9f3536; font-size: 0.9rem;">(España)</span><br>
-                        <em>Universidad Pablo de Olavide (España)</em><br>
-                        Página: <a href="https://scholar.google.es/citations?hl=es&user=lAkJQhEAAAAJ" target="_blank" style="color: #054056;">Google Scholar</a>
-                    </p>
-                </div>
-
-                <div style="margin-bottom: 1.5rem; break-inside: avoid;">
-                    <p style="margin: 0;">
-                        <strong style="color: #2c2c2c;">García Guerrero, Victor Manuel</strong> <span style="color: #9f3536; font-size: 0.9rem;">(México)</span><br>
-                        <em>Centro de Estudios Demográficos, Urbanos y Ambientales, COLMEX (México)</em><br>
-                        Página: <a href="https://scholar.google.com/citations?user=y8CSqPQAAAAJ&hl=es" target="_blank" style="color: #054056;">Google Scholar</a>
-                    </p>
-                </div>
-
-                <div style="margin-bottom: 1.5rem; break-inside: avoid;">
-                    <p style="margin: 0;">
-                        <strong style="color: #2c2c2c;">Gargiulo, Maria</strong> <span style="color: #9f3536; font-size: 0.9rem;">(Estados Unidos)</span><br>
-                        <em>London School of Hygiene and Tropical Medicine (Reino Unido)</em><br>
-                        Página: <a href="https://scholar.google.com/citations?user=GWYQSc0AAAAJ&hl=en" target="_blank" style="color: #054056;">Google Scholar</a>
-                    </p>
-                </div>
-
-                <div style="margin-bottom: 1.5rem; break-inside: avoid;">
-                    <p style="margin: 0;">
-                        <strong style="color: #2c2c2c;">Gonzalez, Leandro Mariano</strong> <span style="color: #9f3536; font-size: 0.9rem;">(Argentina)</span><br>
-                        <em>CIECS-CONICET/UN Córdoba</em><br>
-                        Página: <a href="https://scholar.google.com/citations?user=i4eB75QAAAAJ&hl=es" target="_blank" style="color: #054056;">Google Scholar</a>
-                    </p>
-                </div>
-
-                <div style="margin-bottom: 1.5rem; break-inside: avoid;">
-                    <p style="margin: 0;">
-                        <strong style="color: #2c2c2c;">Grushka, Carlos</strong> <span style="color: #9f3536; font-size: 0.9rem;">(Argentina)</span><br>
-                        <em>Universidad de Buenos Aires (Argentina)</em><br>
-                        Página: <a href="https://orcid.org/0000-0002-3140-7300" target="_blank" style="color: #054056;">ORCID</a>
-                    </p>
-                </div>
-
-                <div style="margin-bottom: 1.5rem; break-inside: avoid;">
-                    <p style="margin: 0;">
-                        <strong style="color: #2c2c2c;">Jimenez Solis, Sebastian Antonio</strong><br>
-                        <em>Universidad Nacional Autónoma de México</em>
-                    </p>
-                </div>
-
-                <div style="margin-bottom: 1.5rem; break-inside: avoid;">
-                    <p style="margin: 0;">
-                        <strong style="color: #2c2c2c;">Lara Castañeda, Elder</strong> <span style="color: #9f3536; font-size: 0.9rem;">(México)</span><br>
-                        <em>Interdisciplinary Centre on Population Dynamics (Dinamarca), European Doctoral School of Demography - Institut national d'études démographiques (Francia)</em><br>
-                        Email: elder.lara.cas@gmail.com
-                    </p>
-                </div>
-
-                <div style="margin-bottom: 1.5rem; break-inside: avoid;">
-                    <p style="margin: 0;">
-                        <strong style="color: #2c2c2c;">Lima, Everton</strong> <span style="color: #9f3536; font-size: 0.9rem;">(Brasil)</span><br>
-                        <em>Departamento de Demografía-UNICAMP (Brasil)</em><br>
-                        Email: evertone@unicamp.br
-                    </p>
-                </div>
-
-                <div style="margin-bottom: 1.5rem; break-inside: avoid;">
-                    <p style="margin: 0;">
-                        <strong style="color: #2c2c2c;">Lozano Keymolen, Daniel</strong> <span style="color: #9f3536; font-size: 0.9rem;">(México)</span><br>
-                        <em>Universidad Autónoma del Estado de México (México)</em><br>
-                        Página: <a href="https://scholar.google.com/citations?user=QguhtDgAAAAJ&hl=en" target="_blank" style="color: #054056;">Google Scholar</a>
-                    </p>
-                </div>
-
-                <div style="margin-bottom: 1.5rem; break-inside: avoid;">
-                    <p style="margin: 0;">
-                        <strong style="color: #2c2c2c;">Manzelli, Hernán</strong> <span style="color: #9f3536; font-size: 0.9rem;">(Argentina)</span><br>
-                        <em>Centro de Estudios de Población-CONICET (Argentina)</em><br>
-                        Email: hernan@cenep.org.ar
-                    </p>
-                </div>
-
-                <div style="margin-bottom: 1.5rem; break-inside: avoid;">
-                    <p style="margin: 0;">
-                        <strong style="color: #2c2c2c;">McEniry, Mary</strong> <span style="color: #9f3536; font-size: 0.9rem;">(Estados Unidos)</span><br>
-                        <em>Universidad de Wisconsin-Madison</em>
-                    </p>
-                </div>
-
-                <div style="margin-bottom: 1.5rem; break-inside: avoid;">
-                    <p style="margin: 0;">
-                        <strong style="color: #2c2c2c;">Montenegro Ramirez, Paola Constanza</strong><br>
-                        <em>Profamilia</em>
-                    </p>
-                </div>
-
-                <div style="margin-bottom: 1.5rem; break-inside: avoid;">
-                    <p style="margin: 0;">
-                        <strong style="color: #2c2c2c;">Navarro, Rafael</strong><br>
-                        <em>NIDI (Países Bajos)</em>
-                    </p>
-                </div>
-
-                <div style="margin-bottom: 1.5rem; break-inside: avoid;">
-                    <p style="margin: 0;">
-                        <strong style="color: #2c2c2c;">Novak, Beatriz</strong> <span style="color: #9f3536; font-size: 0.9rem;">(Argentina)</span><br>
-                        <em>Centro de Estudios Demográficos, Urbanos y Ambientales, COLMEX (México)</em><br>
-                        Página: <a href="https://cedua.colmex.mx/personal-academico/novak-beatriz/semblanza" target="_blank" style="color: #054056;">COLMEX</a>
-                    </p>
-                </div>
-
-                <div style="margin-bottom: 1.5rem; break-inside: avoid;">
-                    <p style="margin: 0;">
-                        <strong style="color: #2c2c2c;">Paredes Della Croce, Mariana</strong> <span style="color: #9f3536; font-size: 0.9rem;">(Uruguay)</span><br>
-                        <em>Programa de Poblacion, Facultad de Ciencias Sociales, Universidad de la República (Uruguay)</em><br>
-                        Página: <a href="https://cienciassociales.edu.uy/unidad-multidisciplinaria/programa-de-poblacion/equipo-docente/mariana-paredes/" target="_blank" style="color: #054056;">Universidad de la República</a>
-                    </p>
-                </div>
-
-                <div style="margin-bottom: 1.5rem; break-inside: avoid;">
-                    <p style="margin: 0;">
-                        <strong style="color: #2c2c2c;">Passarelli-Araujo, Hisrael</strong> <span style="color: #9f3536; font-size: 0.9rem;">(Brasil)</span><br>
-                        <em>Federal University of Minas Gerais (Brasil)</em><br>
-                        Página: <a href="https://orcid.org/0000-0003-3534-8392" target="_blank" style="color: #054056;">ORCID</a>
-                    </p>
-                </div>
-
-                <div style="margin-bottom: 1.5rem; break-inside: avoid;">
-                    <p style="margin: 0;">
-                        <strong style="color: #2c2c2c;">Permanyer Ugartemendia, Iñaki</strong> <span style="color: #9f3536; font-size: 0.9rem;">(España)</span><br>
-                        <em>Centro de Estudios Demográficos (España)</em><br>
-                        Página: <a href="https://orcid.org/0000-0002-7051-5144" target="_blank" style="color: #054056;">ORCID</a>
-                    </p>
-                </div>
-
-                <div style="margin-bottom: 1.5rem; break-inside: avoid;">
-                    <p style="margin: 0;">
-                        <strong style="color: #2c2c2c;">Peters, Paul</strong><br>
-                        <em>Carleton University</em>
-                    </p>
-                </div>
-
-                <div style="margin-bottom: 1.5rem; break-inside: avoid;">
-                    <p style="margin: 0;">
-                        <strong style="color: #2c2c2c;">Pollero Beheregaray, Raquel</strong> <span style="color: #9f3536; font-size: 0.9rem;">(Uruguay)</span><br>
-                        <em>Programa de Población, Facultad de Ciencias Sociales, Universidad de la República (Uruguay)</em>
-                    </p>
-                </div>
-
-                <div style="margin-bottom: 1.5rem; break-inside: avoid;">
-                    <p style="margin: 0;">
-                        <strong style="color: #2c2c2c;">Queiroz, Bernardo L.</strong> <span style="color: #9f3536; font-size: 0.9rem;">(Brasil)</span><br>
-                        <em>Departamento de Demografía-CEDEPLAR-UFMG (Brasil)</em><br>
-                        Email: lanza@cedeplar.ufmg.br
-                    </p>
-                </div>
-
-                <div style="margin-bottom: 1.5rem; break-inside: avoid;">
-                    <p style="margin: 0;">
-                        <strong style="color: #2c2c2c;">Renteria, Elisenda</strong><br>
-                        <em>Centre d'Estudis Demogràfics (España)</em>
-                    </p>
-                </div>
-
-                <div style="margin-bottom: 1.5rem; break-inside: avoid;">
-                    <p style="margin: 0;">
-                        <strong style="color: #2c2c2c;">Rodrigues Fechine, Valéria Maria</strong><br>
-                        <em>Universidade de Brasilia</em>
-                    </p>
-                </div>
-
-                <div style="margin-bottom: 1.5rem; break-inside: avoid;">
-                    <p style="margin: 0;">
-                        <strong style="color: #2c2c2c;">Rojas Huerta, Abigail Vanessa</strong> <span style="color: #9f3536; font-size: 0.9rem;">(México)</span><br>
-                        <em>El Colegio de la Frontera Norte (México)</em><br>
-                        Página: <a href="https://orcid.org/0000-0002-3032-8627" target="_blank" style="color: #054056;">ORCID</a>
-                    </p>
-                </div>
-
-                <div style="margin-bottom: 1.5rem; break-inside: avoid;">
-                    <p style="margin: 0;">
-                        <strong style="color: #2c2c2c;">Sandoval, Moises H.</strong> <span style="color: #9f3536; font-size: 0.9rem;">(Chile)</span><br>
-                        <em>Universidad de Chile</em><br>
-                        Página: <a href="https://orcid.org/0000-0003-0112-2045" target="_blank" style="color: #054056;">ORCID</a>
-                    </p>
-                </div>
-
-                <div style="margin-bottom: 1.5rem; break-inside: avoid;">
-                    <p style="margin: 0;">
-                        <strong style="color: #2c2c2c;">Santos Mercedes, Kary Desiree</strong> <span style="color: #9f3536; font-size: 0.9rem;">(República Dominicana)</span><br>
-                        <em>Universidade de Brasilia (Brasil)</em><br>
-                        Página: <a href="https://orcid.org/0000-0001-7010-2027" target="_blank" style="color: #054056;">ORCID</a>
-                    </p>
-                </div>
-
-                <div style="margin-bottom: 1.5rem; break-inside: avoid;">
-                    <p style="margin: 0;">
-                        <strong style="color: #2c2c2c;">Soarez Bertho, Ana Carolina</strong> <span style="color: #9f3536; font-size: 0.9rem;">(Brasil)</span><br>
-                        <em>Escola Nacional de Ciências Estatísticas (ENCE/IBGE) (Brasil)</em><br>
-                        Página: <a href="http://lattes.cnpq.br/5333953667454993" target="_blank" style="color: #054056;">Lattes</a>
-                    </p>
-                </div>
-
-                <div style="margin-bottom: 1.5rem; break-inside: avoid;">
-                    <p style="margin: 0;">
-                        <strong style="color: #2c2c2c;">Spijker, Jeroen</strong><br>
-                        <em>Centre d'Estudis Demogràfics (España)</em>
-                    </p>
-                </div>
-
-                <div style="margin-bottom: 1.5rem; break-inside: avoid;">
-                    <p style="margin: 0;">
-                        <strong style="color: #2c2c2c;">Torres, Catalina</strong> <span style="color: #9f3536; font-size: 0.9rem;">(Colombia)</span><br>
-                        <em>Programa de Poblacion, Facultad de Ciencias Sociales, Universidad de la República (Uruguay)</em><br>
-                        Página: <a href="https://cienciassociales.edu.uy/unidad-multidisciplinaria/programa-de-poblacion/equipo-docente/catalina-torres/" target="_blank" style="color: #054056;">Universidad de la República</a>
-                    </p>
-                </div>
-
-                <div style="margin-bottom: 1.5rem; break-inside: avoid;">
-                    <p style="margin: 0;">
-                        <strong style="color: #2c2c2c;">Valdebenito, Carlos E.</strong><br>
-                        <em>Pontificia Universidad Católica de Valparaíso</em>
-                    </p>
-                </div>
-
-                <div style="margin-bottom: 1.5rem; break-inside: avoid;">
-                    <p style="margin: 0;">
-                        <strong style="color: #2c2c2c;">Vázquez, Paola</strong> <span style="color: #9f3536; font-size: 0.9rem;">(México)</span><br>
-                        <em>Interdisciplinary Centre on Population Dynamics-SDU (Dinamarca)</em><br>
-                        Email: pavaz@sdu.dk
-                    </p>
-                </div>
-
-                <div style="margin-bottom: 1.5rem; break-inside: avoid;">
-                    <p style="margin: 0;">
-                        <strong style="color: #2c2c2c;">Yangali Orihuela, Marcial</strong><br>
-                        <em>Centro de Estudios Demográficos, Urbanos y Ambientales, Colmex (México)</em>
-                    </p>
-                </div>
-
-                <div style="margin-bottom: 0; break-inside: avoid;">
-                    <p style="margin: 0;">
-                        <strong style="color: #2c2c2c;">Zueras, Pilar</strong> <span style="color: #9f3536; font-size: 0.9rem;">(España)</span><br>
-                        <em>Centre d'Estudis Demogràfics (España)</em><br>
-                        Página: <a href="https://scholar.google.es/citations?hl=es&user=0eBBlc0AAAAJ" target="_blank" style="color: #054056;">Google Scholar</a>
-                    </p>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</div>
-        </div>
-
-        <!-- TAB 2: EVENTOS -->
-        <div id="eventos" class="tab-content">
-            <div class="section">
-                <div class="section-header">
-                    I Seminario sobre Salud y Mortalidad en América Latina
-                </div>
-                <div class="section-content">
-                    <div class="eventos-layout">
-                        <!-- Información del evento (lado izquierdo) -->
-                        <div style="flex: 1;">
-                            <div style="font-size: 1.6rem; margin-bottom: 1rem; color: #054056; font-weight: 600;">
-                                I Seminario sobre Salud y Mortalidad en América Latina
-                            </div>
-                            
-                            <div style="margin-bottom: 2rem;">
-                                <p style="color: #2c2c2c; font-size: 1.1rem; margin-bottom: 0.8rem; display: flex; align-items: center;">
-                                    <span style="margin-right: 8px;">📅</span>
-                                    17 y 18 de Septiembre de 2025
-                                </p>
-                                
-                                <p style="color: #2c2c2c; font-size: 1rem; margin-bottom: 1.5rem; display: flex; align-items: flex-start;">
-                                    <span style="margin-right: 8px; margin-top: 2px;">🏛️</span>
-                                    <span>
-                                        Facultad de Ciencias Sociales (FCS)<br>
-                                        Universidad de la República, Uruguay
-                                    </span>
-                                </p>
-                                
-                                <!-- Botón de descarga prominente -->
-                                <div style="text-align: left;">
-                                    <a href="docs/seminario-salud-mortalidad-2025.pdf" target="_blank" 
-                                       style="display: inline-block; background: #054056; color: white; padding: 1rem 2rem; text-decoration: none; border-radius: 4px; font-weight: 600; font-size: 1.1rem; transition: all 0.3s ease; border: 1px solid #054056; box-shadow: 0 3px 10px rgba(5, 64, 86, 0.2);"
-                                       onmouseover="this.style.backgroundColor='#408355'; this.style.transform='translateY(-2px)'"
-                                       onmouseout="this.style.backgroundColor='#054056'; this.style.transform='translateY(0)'">
-                                        📄 Descargar Programa Completo
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Banner del evento (lado derecho) -->
-                        <div class="evento-banner">
-                            <div style="background: white; border-radius: 0; overflow: hidden; border: 1px solid #e5e5e5;">
-                                <img src="images/banner-seminario.jpg" alt="Banner I Seminario Salud y Mortalidad" 
-                                     style="width: 100%; height: auto; display: block;">
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
 
-<!-- Sección de Recordatorio para Miembros - Opción Centrada -->
-<div class="section">
+            <!-- TAB 2: EVENTOS -->
+            <div id="eventos" class="tab-content">
+                <div class="section">
     <div class="section-header">
         🔔 Recordatorio para Miembros
     </div>
@@ -1050,7 +1103,7 @@
         <!-- Contenido centrado -->
         <div style="max-width: 600px; margin: 0 auto;">
                 <p style="color: #2c2c2c; font-size: 1.1rem; margin-bottom: 1.5rem; line-height: 1.6;">
-                    Recuerda que tienes hasta el <strong style="color: #9f3536;">30 de octubre de 2025</strong> para enviar tu artículo a la revista <strong>Estudios Demográficos y Urbanos</strong>.
+                    Recuerda que tienes hasta el <strong style="color: #9f3536;">30 de octubre de 2025</strong> para enviar tu artículo sobre el I Seminario sobre Salud y Mortalidad en América Latina a la revista <strong>Estudios Demográficos y Urbanos</strong>.
                 </p>
                 
                 <!-- Botón centrado -->
@@ -1063,299 +1116,447 @@
            
         </div>
     </div>
+                <!-- SECCIÓN SIEMPRE ABIERTA -->
+                <div class="section">
+                    <div class="section-header">
+                        Próximos eventos
+                    </div>
+                    <div class="section-content">
+                        <div class="eventos-layout">
+                            <!-- Información del evento (lado izquierdo) -->
+                            <div style="flex: 1;">
+                                <div style="font-size: 1.6rem; margin-bottom: 1rem; color: #054056; font-weight: 600;">
+                                    I Seminario sobre Salud y Mortalidad en América Latina
+                                </div>
+                                
+                                <div style="margin-bottom: 2rem;">
+                                    <p style="color: #2c2c2c; font-size: 1.1rem; margin-bottom: 0.8rem; display: flex; align-items: center;">
+                                        <span style="margin-right: 8px;">📅</span>
+                                        17 y 18 de Septiembre de 2025
+                                    </p>
+                                    
+                                    <p style="color: #2c2c2c; font-size: 1rem; margin-bottom: 1.5rem; display: flex; align-items: flex-start;">
+                                        <span style="margin-right: 8px; margin-top: 2px;">🏛️</span>
+                                        <span>
+                                            Facultad de Ciencias Sociales (FCS)<br>
+                                            Universidad de la República, Uruguay
+                                        </span>
+                                    </p>
+                                    
+                                    <!-- Botón de descarga prominente -->
+                                    <div style="text-align: left;">
+                                        <a href="docs/seminario-salud-mortalidad-2025.pdf" target="_blank" 
+                                           style="display: inline-block; background: #054056; color: white; padding: 1rem 2rem; text-decoration: none; border-radius: 4px; font-weight: 600; font-size: 1.1rem; transition: all 0.3s ease; border: 1px solid #054056; box-shadow: 0 3px 10px rgba(5, 64, 86, 0.2);"
+                                           onmouseover="this.style.backgroundColor='#408355'; this.style.transform='translateY(-2px)'"
+                                           onmouseout="this.style.backgroundColor='#054056'; this.style.transform='translateY(0)'">
+                                            📄 Descargar Programa Completo
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Banner del evento (lado derecho) -->
+                            <div class="evento-banner">
+                                <div style="background: white; border-radius: 0; overflow: hidden; border: 1px solid #e5e5e5;">
+                                    <img src="images/banner-seminario.jpg" alt="Banner I Seminario Salud y Mortalidad" 
+                                         style="width: 100%; height: auto; display: block;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--evento 2-->
+                    <div class="section-content">
+                        <div class="eventos-layout">
+                            <!-- Información del evento (lado izquierdo) -->
+                            <div style="flex: 1;">
+                                <div style="font-size: 1.6rem; margin-bottom: 1rem; color: #054056; font-weight: 600;">
+                                    II Seminario virtual de investigación<br>regional
+                                </div>
+                                
+                                <div style="margin-bottom: 2rem;">
+                                    <p style="color: #2c2c2c; font-size: 1.1rem; margin-bottom: 0.8rem; display: flex; align-items: center;">
+                                        <span style="margin-right: 8px;">📅</span>
+                                        Lunes 8 de Septiembre del 2025
+                                    </p>
+                                    <p style="color: #2c2c2c; font-size: 1.1rem; margin-bottom: 0.8rem; display: flex; align-items: center;">
+                                     🕣09:00 hrs — México <br>
+                                    🕣12:00 hrs — Brasilia, Montevideo<br> y Buenos Aires <br>
+                                    🕣17:00 hrs — Europa Central
+                                    </p>
+                                    
+                                    <p style="color: #2c2c2c; font-size: 1rem; margin-bottom: 1.5rem; display: flex; align-items: flex-start;">
+                                        <span style="margin-right: 8px; margin-top: 2px;">💻</span>
+                                        <span>
+                                            Reunión por Zoom:
+                                            <a href="https://salavirtual-udelar.zoom.us/j/85305509715" target="_blank" style="color: #054056;">https://salavirtual-udelar.zoom.us/j/85305509715</a>
+                                            <br>ID de la reunión: 853 0550 9715<br>
+                                            
+                                        </span>
+                                    </p>
+                                    
+                                    <!-- Botón de descarga prominente -->
+                                    <div style="text-align: left;">
+                                        <a href="docs/promocion2doSeminario (1).pdf" target="_blank" 
+                                           style="display: inline-block; background: #054056; color: white; padding: 1rem 2rem; text-decoration: none; border-radius: 4px; font-weight: 600; font-size: 1.1rem; transition: all 0.3s ease; border: 1px solid #054056; box-shadow: 0 3px 10px rgba(5, 64, 86, 0.2);"
+                                           onmouseover="this.style.backgroundColor='#408355'; this.style.transform='translateY(-2px)'"
+                                           onmouseout="this.style.backgroundColor='#054056'; this.style.transform='translateY(0)'">
+                                            📄 Descargar PDF
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Banner del evento (lado derecho) -->
+                            <div class="evento-banner">
+                                <div style="background: white; border-radius: 0; overflow: hidden; border: 1px solid #e5e5e5;">
+                                    <img src="images/promocion2doSeminario-banner.jpg" alt="Banner I Seminario Salud y Mortalidad" 
+                                         style="width: 100%; height: auto; display: block;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SECCIÓN DESPLEGABLE -->
+                <div class="collapsible-section">
+                    <div class="collapsible-header" onclick="toggleCollapsible(this)">
+                        <span>Eventos anteriores</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="collapsible-content">
+                        <div class="section-content" style="text-align: left;">
+                            <!--evento 2-->
+                        <div class="eventos-layout">
+                            <!-- Información del evento (lado izquierdo) -->
+                            <div style="flex: 1;">
+                                <div style="font-size: 1.6rem; margin-bottom: 1rem; color: #054056; font-weight: 600;">
+                                   I seminario virtual de investigación<br> regional
+                                </div>
+                                
+                                <div style="margin-bottom: 2rem;">
+                                    <p style="color: #2c2c2c; font-size: 1.1rem; margin-bottom: 0.8rem; display: flex; align-items: center;">
+                                        <span style="margin-right: 8px;">📅</span>
+                                        Martes 6 de mayo del 2025
+                                    </p>
+                                    
+                                    <p style="color: #2c2c2c; font-size: 1rem; margin-bottom: 1.5rem; display: flex; align-items: flex-start;">
+                                        <span style="margin-right: 8px; margin-top: 2px;">🎥</span>
+                                        <span>
+                                            Vea la grabación del seminario aquí:
+                                            <a href="https://drive.google.com/drive/u/1/folders/1VK91fOU5MTtAf94SKOtekFiyI37I_U9D" target="_blank" style="color: #054056;">Google Drive</a>                                            
+                                        </span>
+                                    </p>
+                                    
+                                    <!-- Botón de descarga prominente -->
+                                    <div style="text-align: left;">
+                                        <a href="seminario1_mayo2025.pdf" target="_blank" 
+                                           style="display: inline-block; background: #054056; color: white; padding: 1rem 2rem; text-decoration: none; border-radius: 4px; font-weight: 600; font-size: 1.1rem; transition: all 0.3s ease; border: 1px solid #054056; box-shadow: 0 3px 10px rgba(5, 64, 86, 0.2);"
+                                           onmouseover="this.style.backgroundColor='#408355'; this.style.transform='translateY(-2px)'"
+                                           onmouseout="this.style.backgroundColor='#054056'; this.style.transform='translateY(0)'">
+                                            📄 Descargar PDF
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Banner del evento (lado derecho) -->
+                            <div class="evento-banner">
+                                <div style="background: white; border-radius: 0; overflow: hidden; border: 1px solid #e5e5e5;">
+                                    <img src="images/seminario1_mayo2025-banner.jpg" alt="Banner I Seminario Salud y Mortalidad" 
+                                         style="width: 100%; height: auto; display: block;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                           
+            </div>
 </div>
+</div>
+            <!-- TAB 3: PUBLICACIONES -->
+            <div id="publicaciones" class="tab-content">
+                <div class="publications-intro">
+                    <h2 style="color: #2c2c2c; margin-bottom: 0.5rem;">Trabajos recientes publicados por nuestros miembros</h2>
+                </div>
 
-<!-- CSS ADICIONAL PARA RESPONSIVE -->
-<style>
-@media (max-width: 768px) {
-    /* Para la Opción 1 - en móvil se apila verticalmente */
-    .section-content > div:first-child {
-        flex-direction: column !important;
-        gap: 1.5rem !important;
-    }
-    
-    .section-content > div:first-child > div:last-child {
-        flex: none !important;
-        text-align: center;
-    }
-}
-</style>
-
-           
-        </div>
-
-        <!-- TAB 3: PUBLICACIONES -->
-        <div id="publicaciones" class="tab-content">
-            <div class="publications-intro">
-                <h2 style="color: #2c2c2c; margin-bottom: 0.5rem;">Trabajos recientes publicados por nuestros miembros</h2>
-            </div>
-
-            <!-- 2025 -->
-            <div class="accordion-year">
-                <div class="accordion-header active" data-year="2025">
-                    <span>2025</span>
-                    <span class="accordion-icon">▼</span>
-                </div>
-                <div class="accordion-content active">
-                    <div class="publication-item">
-                        <div class="publication-authors">Agudelo-Botero, M., Dávila-Cervantes, C. A. (2025)</div>
-                        <div class="publication-title">Mortality and Years of Life Lost From Cardiometabolic Diseases in Mexico: National and State-Level Trends, 1998-2022.</div>
-                        <div class="publication-journal">Public Health Rep.</div>
-                        <div class="publication-doi"><a href="https://doi.org/10.1177/00333549241308166" target="_blank">https://doi.org/10.1177/00333549241308166</a></div>
+                <!-- 2025 -->
+                <div class="accordion-year">
+                    <div class="accordion-header active" data-year="2025">
+                        <span>2025</span>
+                        <span class="accordion-icon">▼</span>
                     </div>
-                    <div class="publication-item">
-                        <div class="publication-authors">Agudelo-Botero, M., Vogt, T., Giraldo-Rodríguez, L. (2025)</div>
-                        <div class="publication-title">Convergences and Divergences in the Burden of Disease in Older People Across The Organisation for Economic Cooperation and Development Countries.</div>
-                        <div class="publication-journal">Arch Med Res.</div>
-                        <div class="publication-doi"><a href="https://doi.org/10.1016/j.arcmed.2024.103082" target="_blank">https://doi.org/10.1016/j.arcmed.2024.103082</a></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 2024 -->
-            <div class="accordion-year">
-                <div class="accordion-header" data-year="2024">
-                    <span>2024</span>
-                    <span class="accordion-icon">▼</span>
-                </div>
-                <div class="accordion-content">
-                    <div class="publication-item">
-                        <div class="publication-authors">Acosta, E., Hug, L., Cruz-Castanheira, H., Sharrow, D., Monteiro da Silva, J. H., You, D. (2024)</div>
-                        <div class="publication-title">Changes in stillbirths and child and youth mortality in 2020 and 2021 during the COVID-19 pandemic.</div>
-                        <div class="publication-journal">International Journal of Epidemiology, 53(3).</div>
-                        <div class="publication-doi"><a href="https://doi.org/10.1093/ije/dyae057" target="_blank">https://doi.org/10.1093/ije/dyae057</a></div>
-                    </div>
-                    <div class="publication-item">
-                        <div class="publication-authors">Acosta, L., González, L.M., Peláez, E., Escanés, G. (2024)</div>
-                        <div class="publication-title">Impacto directo e indirecto de la pandemia de COVID-19 en la esperanza de vida en Argentina, 2020-2021.</div>
-                        <div class="publication-journal">Revista de la Asociación Latinoamericana de Población.</div>
-                        <div class="publication-doi"><a href="http://doi.org/10.31406/relap2024.v.18e202414" target="_blank">http://doi.org/10.31406/relap2024.v.18e202414</a></div>
-                    </div>
-                    <div class="publication-item">
-                        <div class="publication-authors">Agudelo-Botero, M., Dávila-Cervantes, C. A., Giraldo-Rodríguez, L. (2024)</div>
-                        <div class="publication-title">Cardiometabolic multimorbidity in Mexican adults: a cross-sectional analysis of a national survey.</div>
-                        <div class="publication-journal">Front Med (Lausanne).</div>
-                        <div class="publication-doi"><a href="https://doi.org/10.3389/fmed.2024.1380715" target="_blank">https://doi.org/10.3389/fmed.2024.1380715</a></div>
-                    </div>
-                    <div class="publication-item">
-                        <div class="publication-authors">Baptista, E. A., Shen, T., Canudas-Romo, V. (2024)</div>
-                        <div class="publication-title">Disability and its impact on life expectancy: heterogeneity across Mexican states.</div>
-                        <div class="publication-journal">BMC Public Health, 24(1), 2776.</div>
-                        <div class="publication-doi"><a href="https://doi.org/10.1186/s12889-024-20245-x" target="_blank">https://doi.org/10.1186/s12889-024-20245-x</a></div>
-                    </div>
-                    <div class="publication-item">
-                        <div class="publication-authors">Baptista, E. A. (2024)</div>
-                        <div class="publication-title">Cardiovascular diseases mortality in mexican municipalities: a spatio-temporal approach.</div>
-                        <div class="publication-journal">Applied Spatial Analysis and Policy, 17(2), 637-650.</div>
-                        <div class="publication-doi"><a href="https://doi.org/10.1007/s12061-023-09562-7" target="_blank">https://doi.org/10.1007/s12061-023-09562-7</a></div>
-                    </div>
-                    <div class="publication-item">
-                        <div class="publication-authors">Bertho, A. C. S., Fernandes, N. S., Fonseca, T. C. O., Acosta, B., Peregrino, R. L. (2024)</div>
-                        <div class="publication-title">Seguros de pessoas e previdência complementar aberta no Brasil: Um estudo sobre os diferenciais de mortalidade por nível educacional.</div>
-                        <div class="publication-journal">Revista Contabilidade & Finanças. V. 35, p. 1-15.</div>
-                        <div class="publication-doi"><a href="https://doi.org/10.1590/1808-057x20241961.pt" target="_blank">https://doi.org/10.1590/1808-057x20241961.pt</a></div>
-                    </div>
-                    <div class="publication-item">
-                        <div class="publication-authors">Bramajo, O., García-Guerrero, V. M., Permanyer, I. (2024)</div>
-                        <div class="publication-title">Educational Disparities in Preventable Deaths: Do They Explain the Longevity Gap Between Mexico and Spain?</div>
-                        <div class="publication-journal">Journal of Aging and Health.</div>
-                        <div class="publication-doi"><a href="https://doi.org/10.1177/08982643241303585" target="_blank">https://doi.org/10.1177/08982643241303585</a></div>
-                    </div>
-                    <div class="publication-item">
-                        <div class="publication-authors">García, J. (2024)</div>
-                        <div class="publication-title">The Urban Bias in Latin American Amenable Mortality.</div>
-                        <div class="publication-journal">European Journal of Population, 40(1):32.</div>
-                        <div class="publication-doi"><a href="https://doi.org/10.1007/s10680-024-09716-4" target="_blank">https://doi.org/10.1007/s10680-024-09716-4</a></div>
-                    </div>
-                    <div class="publication-item">
-                        <div class="publication-authors">Novak, B. (2024)</div>
-                        <div class="publication-title">Determinantes de la edad a la menopausia en Brasil, Chile y Uruguay: un enfoque de curso de vida.</div>
-                        <div class="publication-journal">El Colegio de México, Centro de Estudios Demográficos, Urbanos y Ambientales. 433 p.</div>
-                        <div class="publication-doi">ISBN: 9786075645858</div>
-                    </div>
-                    <div class="publication-item">
-                        <div class="publication-authors">Torres, C., Rosas, V. P., De Armas, G., & Paredes, M. (2024)</div>
-                        <div class="publication-title">The impact of the COVID-19 pandemic on mortality in Uruguay from 2020 to 2022.</div>
-                        <div class="publication-journal">Demographic Research, 51: 911-926.</div>
-                        <div class="publication-doi"><a href="https://doi.org/10.4054/DemRes.2024.51.29" target="_blank">https://doi.org/10.4054/DemRes.2024.51.29</a></div>                    </div>
-                </div>
-            </div>
-
-            <!-- 2023 -->
-            <div class="accordion-year">
-                <div class="accordion-header" data-year="2023">
-                    <span>2023</span>
-                    <span class="accordion-icon">▼</span>
-                </div>
-                <div class="accordion-content">
-                    <div class="publication-item">
-                        <div class="publication-authors">Calderón-Jaramillo, M., Zueras, P. (2023)</div>
-                        <div class="publication-title">Cared and uncared populations: understanding unmet care needs of older adults (65+) across different social care systems in Europe.</div>
-                        <div class="publication-journal">Eur J Ageing, 20(11).</div>
-                        <div class="publication-doi"><a href="https://doi.org/10.1007/s10433-023-00760-3" target="_blank">https://doi.org/10.1007/s10433-023-00760-3</a></div>
-                    </div>
-                    <div class="publication-item">
-                        <div class="publication-authors">Dávila-Cervantes, C. A. (2023)</div>
-                        <div class="publication-title">The burden of type 2 diabetes in adolescents and young adults in Mexico: analysis from the global burden of Disease Study, 1990 to 2019.</div>
-                        <div class="publication-journal">Journal of Diabetes & Metabolic Disorders, 22(2), 1673-1684.</div>
-                        <div class="publication-doi"><a href="https://doi.org/10.1007/s40200-023-01299-x" target="_blank">https://doi.org/10.1007/s40200-023-01299-x</a></div>
-                    </div>
-                    <div class="publication-item">
-                        <div class="publication-authors">García, J. Meslé, F. (2023)</div>
-                        <div class="publication-title">Spatial Differences in the Latin American Health Transition.</div>
-                        <div class="publication-journal">Espace Populations Sociétés, Special issue on Spatial differentials in causes of death.</div>
-                        <div class="publication-doi"><a href="https://doi.org/10.4000/12tpo" target="_blank">https://doi.org/10.4000/12tpo</a></div>
-                    </div>
-                    <div class="publication-item">
-                        <div class="publication-authors">Novak, B., Lozano Keymolen, D.(2023)</div>
-                        <div class="publication-title">Mortalidad en adultos mexicanos de 50 a 80 años de edad con multimorbilidad: periodo de observación de 18 años.</div>
-                        <div class="publication-journal">Estudios Demográficos y Urbanos, vol. 38. núm. 1: 9-54.</div>
-                        <div class="publication-doi"><a href="https://doi.org/10.24201/edu.v38i1.2108" target="_blank">https://doi.org/10.24201/edu.v38i1.2108</a></div>
-                    </div>
-                    <div class="publication-item">
-                        <div class="publication-authors">Passarelli-Araujo, H., & Moraes, L. (2023)</div>
-                        <div class="publication-title">Urban-rural health disparities in Brazil: Do sociodemographic attributes play a role?</div>
-                        <div class="publication-journal">Preventive Medicine, 173, 107679.</div>
-                        <div class="publication-doi"><a href="https://doi.org/10.1016/j.ypmed.2023.107679" target="_blank">https://doi.org/10.1016/j.ypmed.2023.107679</a></div>
-                    </div>
-                    <div class="publication-item">
-                        <div class="publication-authors">Sandoval, M. H., Alvear Portaccio, M. E., Albala, C. (2023)</div>
-                        <div class="publication-title">Life expectancy by ethnic origin in Chile.</div>
-                        <div class="publication-journal">Frontiers in public health, 11, 1147542.</div>
-                        <div class="publication-doi"><a href="https://doi.org/10.3389/fpubh.2023.1147542" target="_blank">https://doi.org/10.3389/fpubh.2023.1147542</a></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 2022 -->
-            <div class="accordion-year">
-                <div class="accordion-header" data-year="2022">
-                    <span>2022</span>
-                    <span class="accordion-icon">▼</span>
-                </div>
-                <div class="accordion-content">
-                    <div class="publication-item">
-                        <div class="publication-authors">Baptista, E. A., Queiroz, B. L., Lima, E. E. (2022)</div>
-                        <div class="publication-title">Regional COVID-19 mortality in Brazil by age.</div>
-                        <div class="publication-journal">Vienna Yearbook of Population Research, 20, 349-365.</div> 
-                        <div class="publication-doi"><a href="https://doi.org/10.1553/populationyearbook2022.res2.3" target="_blank">https://doi.org/10.1553/populationyearbook2022.res2.3</a></div>
-                    </div>
-                    <div class="publication-item">
-                        <div class="publication-authors">García, J. A., Castro Torres, A. F. (2022)</div>
-                        <div class="publication-title">A binational analysis of infant mortality among crisis-driven diasporas and those who remain: a population-based study in Colombia and Venezuela.</div>
-                        <div class="publication-journal">BMJ global health, 7(8): e009523.</div>
-                        <div class="publication-doi"><a href="https://doi.org/10.1136/bmjgh-2022-009523" target="_blank">https://doi.org/10.1136/bmjgh-2022-009523</a></div>
-                    </div>
-                    <div class="publication-item">
-                        <div class="publication-authors">García, J. (2022)</div>
-                        <div class="publication-title">Transiciones epidemiológicas en Venezuela: diferencias territoriales en las causas de muerte, 2000-2010.</div>
-                        <div class="publication-journal">Revista Latinoamericana de Población, Vol. 16.</div>
-                        <div class="publication-doi"><a href="https://doi.org/10.31406/relap2022.v16.e202206" target="_blank">https://doi.org/10.31406/relap2022.v16.e202206</a></div>
-                    </div>
-                    <div class="publication-item">
-                        <div class="publication-authors">Novak, B., Hernández Flores, J. A. (2022)</div>
-                        <div class="publication-title">A year and a half into the pandemic in México: evidence of differences in COVID-19 mortality between Indigenous and non-Indigenous Peoples.</div>
-                        <div class="publication-journal">AlterNative: An International Journal of Indigenous Peoples, vol. 18, núm. 4., University of Auckland, SAGE Publications. pp. 613-624.</div>
-                        <div class="publication-doi"><a href="https://doi.org/10.1177/11771801221134710" target="_blank">https://doi.org/10.1177/11771801221134710</a></div>
-                    </div>
-                    <div class="publication-item">
-                        <div class="publication-authors">Rojas Huerta, A.V. (2022)</div>
-                        <div class="publication-title">Trayectorias de fragilidad y factores relacionados en la población de adultos mayores en México.</div>
-                        <div class="publication-journal">Población y Salud en Mesoamérica, 19(2).</div>
-                        <div class="publication-doi"><a href="https://doi.org/10.15517/psm.v19i2.46929" target="_blank">https://doi.org/10.15517/psm.v19i2.46929</a></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 2021 -->
-            <div class="accordion-year">
-                <div class="accordion-header" data-year="2021">
-                    <span>2021</span>
-                    <span class="accordion-icon">▼</span>
-                </div>
-                <div class="accordion-content">
-                    <div class="publication-item">
-                        <div class="publication-authors">Aburto, J. M., Calazans, J., Queiroz, B. L., Luhar, S., Canudas-Romo, V. (2021)</div>
-                        <div class="publication-title">Uneven state distribution of homicides in Brazil and their effect on life expectancy, 2000-2015: A cross-sectional mortality study.</div>
-                        <div class="publication-journal">BMJ Open, 11(2): e044706.</div>
-                        <div class="publication-doi"><a href="https://doi.org/10.1136/bmjopen-2020-044706" target="_blank">https://doi.org/10.1136/bmjopen-2020-044706</a></div>
-                    </div>
-                    <div class="publication-item">
-                        <div class="publication-authors">Baptista, E. A., Queiroz, B. L., Pinheiro, P. C. (2021)</div>
-                        <div class="publication-title">Regional distribution of causes of death for small areas in Brazil, 1998–2017.</div>
-                        <div class="publication-journal">Frontiers in Public Health, 9, 601980.</div>
-                        <div class="publication-doi"><a href="https://doi.org/10.3389/fpubh.2021.601980" target="_blank">https://doi.org/10.3389/fpubh.2021.601980</a></div>
-                    </div>
-                    <div class="publication-item">
-                        <div class="publication-authors">García-Guerrero, V.M., Beltrán-Sánchez, H. (2021)</div>
-                        <div class="publication-title">Heterogeneity in Excess Mortality and Its Impact on Loss of Life Expectancy due to COVID-19: Evidence from Mexico.</div>
-                        <div class="publication-journal">Can. Stud. Popul. 48, 165–200.</div>
-                        <div class="publication-doi"><a href="https://doi.org/10.1007/s42650-021-00051-1" target="_blank">https://doi.org/10.1007/s42650-021-00051-1</a></div>
-                    </div>
-                    <div class="publication-item">
-                        <div class="publication-authors">Novak, B., Vázquez Castillo, P. (2021)</div>
-                        <div class="publication-title">Año y medio de pandemia: años de vida perdidos debido al COVID-19 en México.</div>
-                        <div class="publication-journal">Notas de Población, vol. 113. Comisión Económica para América Latina y el Caribe (CEPAL). pp. 171-192.</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 2020 -->
-            <div class="accordion-year">
-                <div class="accordion-header" data-year="2020">
-                    <span>2020</span>
-                    <span class="accordion-icon">▼</span>
-                </div>
-                <div class="accordion-content">
-                    <div class="publication-item">
-                        <div class="publication-authors">Alvarez, J. A., Aburto, J. M., Canudas-Romo, V. (2020)</div>
-                        <div class="publication-title">Latin American convergence and divergence towards the mortality profiles of developed countries.</div>
-                        <div class="publication-journal">Population Studies, 74(1), 75-92.</div>
-                        <div class="publication-doi"><a href="https://doi.org/10.1080/00324728.2019.1614651" target="_blank">https://doi.org/10.1080/00324728.2019.1614651</a></div>
-                    </div>
-                    <div class="publication-item">
-                        <div class="publication-authors">García, J. (2020)</div>
-                        <div class="publication-title">Urban-rural differentials in Latin American infant mortality.</div>
-                        <div class="publication-journal">Demographic Research, Vol 42(8): e203-e244.</div>
-                        <div class="publication-doi"><a href="https://doi.org/10.4054/DemRes.2020.42.8" target="_blank">https://doi.org/10.4054/DemRes.2020.42.8</a></div>
-                    </div>
-                    <div class="publication-item">
-                        <div class="publication-authors">González, L. M.; Pou, S. (2020)</div>
-                        <div class="publication-title">Estimación del exceso de mortalidad por COVID-19 mediante los años de vida perdidos: impacto potencial en Argentina en 2020.</div>
-                        <div class="publication-journal">Notas de Población, N° 111.</div>
-                        <div class="publication-doi"><a href="https://www.cepal.org/es/publicaciones/46550-notas-poblacion-vol-47-ndeg-111" target="_blank">https://www.cepal.org/es/publicaciones/46550-notas-poblacion-vol-47-ndeg-111</a></div>
-                    </div>
-                    <div class="publication-item">
-                        <div class="publication-authors">Grushka, C., O. Bramajo y L. Tibi. (2020)</div>
-                        <div class="publication-title">Mortality analysis of persons with disabilities in Argentina by age, sex and duration of benefit, 2015-16.</div>
-                        <div class="publication-journal">International Social Security Review 73:49-73.</div> 
-                        <div class="publication-doi"><a href="https://doi.org/10.1111/issr.12250" target="_blank">https://doi.org/10.1111/issr.12250</a></div>
-                    </div>
+                    <div class="accordion-content active">
                         <div class="publication-item">
-                        <div class="publication-authors">Novak, B., Lozano Keymolen, D. (2020)</div>
-                        <div class="publication-title">Obesidad, diabetes, mortalidad y esperanza de vida.</div>
-                        <div class="publication-journal">En Silvia Sobrino, Dinámica demográfica de México en el siglo XXI. El Colegio de México. pp. 433-471.</div>
-                        <div class="publication-doi">ISBN: 978-607-564-007-5</div>
+                            <div class="publication-authors">Agudelo-Botero, M., Dávila-Cervantes, C. A. (2025)</div>
+                            <div class="publication-title">Mortality and Years of Life Lost From Cardiometabolic Diseases in Mexico: National and State-Level Trends, 1998-2022.</div>
+                            <div class="publication-journal">Public Health Rep.</div>
+                            <div class="publication-doi"><a href="https://doi.org/10.1177/00333549241308166" target="_blank">https://doi.org/10.1177/00333549241308166</a></div>
+                        </div>
+                        <div class="publication-item">
+                            <div class="publication-authors">Agudelo-Botero, M., Vogt, T., Giraldo-Rodríguez, L. (2025)</div>
+                            <div class="publication-title">Convergences and Divergences in the Burden of Disease in Older People Across The Organisation for Economic Cooperation and Development Countries.</div>
+                            <div class="publication-journal">Arch Med Res.</div>
+                            <div class="publication-doi"><a href="https://doi.org/10.1016/j.arcmed.2024.103082" target="_blank">https://doi.org/10.1016/j.arcmed.2024.103082</a></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2024 -->
+                <div class="accordion-year">
+                    <div class="accordion-header" data-year="2024">
+                        <span>2024</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="publication-item">
+                            <div class="publication-authors">Acosta, E., Hug, L., Cruz-Castanheira, H., Sharrow, D., Monteiro da Silva, J. H., You, D. (2024)</div>
+                            <div class="publication-title">Changes in stillbirths and child and youth mortality in 2020 and 2021 during the COVID-19 pandemic.</div>
+                            <div class="publication-journal">International Journal of Epidemiology, 53(3).</div>
+                            <div class="publication-doi"><a href="https://doi.org/10.1093/ije/dyae057" target="_blank">https://doi.org/10.1093/ije/dyae057</a></div>
+                        </div>
+                        <div class="publication-item">
+                            <div class="publication-authors">Acosta, L., González, L.M., Peláez, E., Escanés, G. (2024)</div>
+                            <div class="publication-title">Impacto directo e indirecto de la pandemia de COVID-19 en la esperanza de vida en Argentina, 2020-2021.</div>
+                            <div class="publication-journal">Revista de la Asociación Latinoamericana de Población.</div>
+                            <div class="publication-doi"><a href="http://doi.org/10.31406/relap2024.v.18e202414" target="_blank">http://doi.org/10.31406/relap2024.v.18e202414</a></div>
+                        </div>
+                        <div class="publication-item">
+                            <div class="publication-authors">Agudelo-Botero, M., Dávila-Cervantes, C. A., Giraldo-Rodríguez, L. (2024)</div>
+                            <div class="publication-title">Cardiometabolic multimorbidity in Mexican adults: a cross-sectional analysis of a national survey.</div>
+                            <div class="publication-journal">Front Med (Lausanne).</div>
+                            <div class="publication-doi"><a href="https://doi.org/10.3389/fmed.2024.1380715" target="_blank">https://doi.org/10.3389/fmed.2024.1380715</a></div>
+                        </div>
+                        <div class="publication-item">
+                            <div class="publication-authors">Baptista, E. A., Shen, T., Canudas-Romo, V. (2024)</div>
+                            <div class="publication-title">Disability and its impact on life expectancy: heterogeneity across Mexican states.</div>
+                            <div class="publication-journal">BMC Public Health, 24(1), 2776.</div>
+                            <div class="publication-doi"><a href="https://doi.org/10.1186/s12889-024-20245-x" target="_blank">https://doi.org/10.1186/s12889-024-20245-x</a></div>
+                        </div>
+                        <div class="publication-item">
+                            <div class="publication-authors">Baptista, E. A. (2024)</div>
+                            <div class="publication-title">Cardiovascular diseases mortality in mexican municipalities: a spatio-temporal approach.</div>
+                            <div class="publication-journal">Applied Spatial Analysis and Policy, 17(2), 637-650.</div>
+                            <div class="publication-doi"><a href="https://doi.org/10.1007/s12061-023-09562-7" target="_blank">https://doi.org/10.1007/s12061-023-09562-7</a></div>
+                        </div>
+                        <div class="publication-item">
+                            <div class="publication-authors">Bertho, A. C. S., Fernandes, N. S., Fonseca, T. C. O., Acosta, B., Peregrino, R. L. (2024)</div>
+                            <div class="publication-title">Seguros de pessoas e previdência complementar aberta no Brasil: Um estudo sobre os diferenciais de mortalidade por nível educacional.</div>
+                            <div class="publication-journal">Revista Contabilidade & Finanças. V. 35, p. 1-15.</div>
+                            <div class="publication-doi"><a href="https://doi.org/10.1590/1808-057x20241961.pt" target="_blank">https://doi.org/10.1590/1808-057x20241961.pt</a></div>
+                        </div>
+                        <div class="publication-item">
+                            <div class="publication-authors">Bramajo, O., García-Guerrero, V. M., Permanyer, I. (2024)</div>
+                            <div class="publication-title">Educational Disparities in Preventable Deaths: Do They Explain the Longevity Gap Between Mexico and Spain?</div>
+                            <div class="publication-journal">Journal of Aging and Health.</div>
+                            <div class="publication-doi"><a href="https://doi.org/10.1177/08982643241303585" target="_blank">https://doi.org/10.1177/08982643241303585</a></div>
+                        </div>
+                        <div class="publication-item">
+                            <div class="publication-authors">García, J. (2024)</div>
+                            <div class="publication-title">The Urban Bias in Latin American Amenable Mortality.</div>
+                            <div class="publication-journal">European Journal of Population, 40(1):32.</div>
+                            <div class="publication-doi"><a href="https://doi.org/10.1007/s10680-024-09716-4" target="_blank">https://doi.org/10.1007/s10680-024-09716-4</a></div>
+                        </div>
+                        <div class="publication-item">
+                            <div class="publication-authors">Novak, B. (2024)</div>
+                            <div class="publication-title">Determinantes de la edad a la menopausia en Brasil, Chile y Uruguay: un enfoque de curso de vida.</div>
+                            <div class="publication-journal">El Colegio de México, Centro de Estudios Demográficos, Urbanos y Ambientales. 433 p.</div>
+                            <div class="publication-doi">ISBN: 9786075645858</div>
+                        </div>
+                        <div class="publication-item">
+                            <div class="publication-authors">Torres, C., Rosas, V. P., De Armas, G., & Paredes, M. (2024)</div>
+                            <div class="publication-title">The impact of the COVID-19 pandemic on mortality in Uruguay from 2020 to 2022.</div>
+                            <div class="publication-journal">Demographic Research, 51: 911-926.</div>
+                            <div class="publication-doi"><a href="https://doi.org/10.4054/DemRes.2024.51.29" target="_blank">https://doi.org/10.4054/DemRes.2024.51.29</a></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2023 -->
+                <div class="accordion-year">
+                    <div class="accordion-header" data-year="2023">
+                        <span>2023</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="publication-item">
+                            <div class="publication-authors">Calderón-Jaramillo, M., Zueras, P. (2023)</div>
+                            <div class="publication-title">Cared and uncared populations: understanding unmet care needs of older adults (65+) across different social care systems in Europe.</div>
+                            <div class="publication-journal">Eur J Ageing, 20(11).</div>
+                            <div class="publication-doi"><a href="https://doi.org/10.1007/s10433-023-00760-3" target="_blank">https://doi.org/10.1007/s10433-023-00760-3</a></div>
+                        </div>
+                        <div class="publication-item">
+                            <div class="publication-authors">Dávila-Cervantes, C. A. (2023)</div>
+                            <div class="publication-title">The burden of type 2 diabetes in adolescents and young adults in Mexico: analysis from the global burden of Disease Study, 1990 to 2019.</div>
+                            <div class="publication-journal">Journal of Diabetes & Metabolic Disorders, 22(2), 1673-1684.</div>
+                            <div class="publication-doi"><a href="https://doi.org/10.1007/s40200-023-01299-x" target="_blank">https://doi.org/10.1007/s40200-023-01299-x</a></div>
+                        </div>
+                        <div class="publication-item">
+                            <div class="publication-authors">García, J. Meslé, F. (2023)</div>
+                            <div class="publication-title">Spatial Differences in the Latin American Health Transition.</div>
+                            <div class="publication-journal">Espace Populations Sociétés, Special issue on Spatial differentials in causes of death.</div>
+                            <div class="publication-doi"><a href="https://doi.org/10.4000/12tpo" target="_blank">https://doi.org/10.4000/12tpo</a></div>
+                        </div>
+                        <div class="publication-item">
+                            <div class="publication-authors">Novak, B., Lozano Keymolen, D.(2023)</div>
+                            <div class="publication-title">Mortalidad en adultos mexicanos de 50 a 80 años de edad con multimorbilidad: periodo de observación de 18 años.</div>
+                            <div class="publication-journal">Estudios Demográficos y Urbanos, vol. 38. núm. 1: 9-54.</div>
+                            <div class="publication-doi"><a href="https://doi.org/10.24201/edu.v38i1.2108" target="_blank">https://doi.org/10.24201/edu.v38i1.2108</a></div>
+                        </div>
+                        <div class="publication-item">
+                            <div class="publication-authors">Passarelli-Araujo, H., & Moraes, L. (2023)</div>
+                            <div class="publication-title">Urban-rural health disparities in Brazil: Do sociodemographic attributes play a role?</div>
+                            <div class="publication-journal">Preventive Medicine, 173, 107679.</div>
+                            <div class="publication-doi"><a href="https://doi.org/10.1016/j.ypmed.2023.107679" target="_blank">https://doi.org/10.1016/j.ypmed.2023.107679</a></div>
+                        </div>
+                        <div class="publication-item">
+                            <div class="publication-authors">Sandoval, M. H., Alvear Portaccio, M. E., Albala, C. (2023)</div>
+                            <div class="publication-title">Life expectancy by ethnic origin in Chile.</div>
+                            <div class="publication-journal">Frontiers in public health, 11, 1147542.</div>
+                            <div class="publication-doi"><a href="https://doi.org/10.3389/fpubh.2023.1147542" target="_blank">https://doi.org/10.3389/fpubh.2023.1147542</a></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2022 -->
+                <div class="accordion-year">
+                    <div class="accordion-header" data-year="2022">
+                        <span>2022</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="publication-item">
+                            <div class="publication-authors">Baptista, E. A., Queiroz, B. L., Lima, E. E. (2022)</div>
+                            <div class="publication-title">Regional COVID-19 mortality in Brazil by age.</div>
+                            <div class="publication-journal">Vienna Yearbook of Population Research, 20, 349-365.</div> 
+                            <div class="publication-doi"><a href="https://doi.org/10.1553/populationyearbook2022.res2.3" target="_blank">https://doi.org/10.1553/populationyearbook2022.res2.3</a></div>
+                        </div>
+                        <div class="publication-item">
+                            <div class="publication-authors">García, J. A., Castro Torres, A. F. (2022)</div>
+                            <div class="publication-title">A binational analysis of infant mortality among crisis-driven diasporas and those who remain: a population-based study in Colombia and Venezuela.</div>
+                            <div class="publication-journal">BMJ global health, 7(8): e009523.</div>
+                            <div class="publication-doi"><a href="https://doi.org/10.1136/bmjgh-2022-009523" target="_blank">https://doi.org/10.1136/bmjgh-2022-009523</a></div>
+                        </div>
+                        <div class="publication-item">
+                            <div class="publication-authors">García, J. (2022)</div>
+                            <div class="publication-title">Transiciones epidemiológicas en Venezuela: diferencias territoriales en las causas de muerte, 2000-2010.</div>
+                            <div class="publication-journal">Revista Latinoamericana de Población, Vol. 16.</div>
+                            <div class="publication-doi"><a href="https://doi.org/10.31406/relap2022.v16.e202206" target="_blank">https://doi.org/10.31406/relap2022.v16.e202206</a></div>
+                        </div>
+                        <div class="publication-item">
+                            <div class="publication-authors">Novak, B., Hernández Flores, J. A. (2022)</div>
+                            <div class="publication-title">A year and a half into the pandemic in México: evidence of differences in COVID-19 mortality between Indigenous and non-Indigenous Peoples.</div>
+                            <div class="publication-journal">AlterNative: An International Journal of Indigenous Peoples, vol. 18, núm. 4., University of Auckland, SAGE Publications. pp. 613-624.</div>
+                            <div class="publication-doi"><a href="https://doi.org/10.1177/11771801221134710" target="_blank">https://doi.org/10.1177/11771801221134710</a></div>
+                        </div>
+                        <div class="publication-item">
+                            <div class="publication-authors">Rojas Huerta, A.V. (2022)</div>
+                            <div class="publication-title">Trayectorias de fragilidad y factores relacionados en la población de adultos mayores en México.</div>
+                            <div class="publication-journal">Población y Salud en Mesoamérica, 19(2).</div>
+                            <div class="publication-doi"><a href="https://doi.org/10.15517/psm.v19i2.46929" target="_blank">https://doi.org/10.15517/psm.v19i2.46929</a></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2021 -->
+                <div class="accordion-year">
+                    <div class="accordion-header" data-year="2021">
+                        <span>2021</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="publication-item">
+                            <div class="publication-authors">Aburto, J. M., Calazans, J., Queiroz, B. L., Luhar, S., Canudas-Romo, V. (2021)</div>
+                            <div class="publication-title">Uneven state distribution of homicides in Brazil and their effect on life expectancy, 2000-2015: A cross-sectional mortality study.</div>
+                            <div class="publication-journal">BMJ Open, 11(2): e044706.</div>
+                            <div class="publication-doi"><a href="https://doi.org/10.1136/bmjopen-2020-044706" target="_blank">https://doi.org/10.1136/bmjopen-2020-044706</a></div>
+                        </div>
+                        <div class="publication-item">
+                            <div class="publication-authors">Baptista, E. A., Queiroz, B. L., Pinheiro, P. C. (2021)</div>
+                            <div class="publication-title">Regional distribution of causes of death for small areas in Brazil, 1998–2017.</div>
+                            <div class="publication-journal">Frontiers in Public Health, 9, 601980.</div>
+                            <div class="publication-doi"><a href="https://doi.org/10.3389/fpubh.2021.601980" target="_blank">https://doi.org/10.3389/fpubh.2021.601980</a></div>
+                        </div>
+                        <div class="publication-item">
+                            <div class="publication-authors">García-Guerrero, V.M., Beltrán-Sánchez, H. (2021)</div>
+                            <div class="publication-title">Heterogeneity in Excess Mortality and Its Impact on Loss of Life Expectancy due to COVID-19: Evidence from Mexico.</div>
+                            <div class="publication-journal">Can. Stud. Popul. 48, 165–200.</div>
+                            <div class="publication-doi"><a href="https://doi.org/10.1007/s42650-021-00051-1" target="_blank">https://doi.org/10.1007/s42650-021-00051-1</a></div>
+                        </div>
+                        <div class="publication-item">
+                            <div class="publication-authors">Novak, B., Vázquez Castillo, P. (2021)</div>
+                            <div class="publication-title">Año y medio de pandemia: años de vida perdidos debido al COVID-19 en México.</div>
+                            <div class="publication-journal">Notas de Población, vol. 113. Comisión Económica para América Latina y el Caribe (CEPAL). pp. 171-192.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2020 -->
+                <div class="accordion-year">
+                    <div class="accordion-header" data-year="2020">
+                        <span>2020</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="publication-item">
+                            <div class="publication-authors">Alvarez, J. A., Aburto, J. M., Canudas-Romo, V. (2020)</div>
+                            <div class="publication-title">Latin American convergence and divergence towards the mortality profiles of developed countries.</div>
+                            <div class="publication-journal">Population Studies, 74(1), 75-92.</div>
+                            <div class="publication-doi"><a href="https://doi.org/10.1080/00324728.2019.1614651" target="_blank">https://doi.org/10.1080/00324728.2019.1614651</a></div>
+                        </div>
+                        <div class="publication-item">
+                            <div class="publication-authors">García, J. (2020)</div>
+                            <div class="publication-title">Urban-rural differentials in Latin American infant mortality.</div>
+                            <div class="publication-journal">Demographic Research, Vol 42(8): e203-e244.</div>
+                            <div class="publication-doi"><a href="https://doi.org/10.4054/DemRes.2020.42.8" target="_blank">https://doi.org/10.4054/DemRes.2020.42.8</a></div>
+                        </div>
+                        <div class="publication-item">
+                            <div class="publication-authors">González, L. M.; Pou, S. (2020)</div>
+                            <div class="publication-title">Estimación del exceso de mortalidad por COVID-19 mediante los años de vida perdidos: impacto potencial en Argentina en 2020.</div>
+                            <div class="publication-journal">Notas de Población, N° 111.</div>
+                            <div class="publication-doi"><a href="https://www.cepal.org/es/publicaciones/46550-notas-poblacion-vol-47-ndeg-111" target="_blank">https://www.cepal.org/es/publicaciones/46550-notas-poblacion-vol-47-ndeg-111</a></div>
+                        </div>
+                        <div class="publication-item">
+                            <div class="publication-authors">Grushka, C., O. Bramajo y L. Tibi. (2020)</div>
+                            <div class="publication-title">Mortality analysis of persons with disabilities in Argentina by age, sex and duration of benefit, 2015-16.</div>
+                            <div class="publication-journal">International Social Security Review 73:49-73.</div> 
+                            <div class="publication-doi"><a href="https://doi.org/10.1111/issr.12250" target="_blank">https://doi.org/10.1111/issr.12250</a></div>
+                        </div>
+                            <div class="publication-item">
+                            <div class="publication-authors">Novak, B., Lozano Keymolen, D. (2020)</div>
+                            <div class="publication-title">Obesidad, diabetes, mortalidad y esperanza de vida.</div>
+                            <div class="publication-journal">En Silvia Sobrino, Dinámica demográfica de México en el siglo XXI. El Colegio de México. pp. 433-471.</div>
+                            <div class="publication-doi">ISBN: 978-607-564-007-5</div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- TAB 4: REGISTRO -->
-        <div id="registro" class="tab-content">
-            <div class="form-container">
-                <h2 style="color: #2c2c2c; margin-bottom: 1rem;">Únete a la Red de Salud y Mortalidad</h2>
-                <div class="form-description">
-                    ¿Eres investigador/a o estudiante de posgrado interesado en profundizar en el estudio de la mortalidad, la salud y temas afines en las poblaciones de América Latina y el Caribe? 
-                    Te invitamos a formar parte de nuestra comunidad científica.
+            <!-- TAB 4: REGISTRO -->
+            <div id="registro" class="tab-content">
+                <div class="form-container">
+                    <h2 style="color: #2c2c2c; margin-bottom: 1rem;">Únete a la Red de Salud y Mortalidad</h2>
+                    <div class="form-description">
+                        ¿Eres investigador/a o estudiante de posgrado interesado en profundizar en el estudio de la mortalidad, la salud y temas afines en las poblaciones de América Latina y el Caribe? 
+                        Te invitamos a formar parte de nuestra comunidad científica.
+                    </div>
+                    
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfqTZggtXLrkKY2VpPmSZiOhyXK345oiLxuw_e4C0H7dgsc9g/viewform" target="_blank" class="form-button">
+                        📝 Completar formulario de registro
+                    </a>
                 </div>
-                
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfqTZggtXLrkKY2VpPmSZiOhyXK345oiLxuw_e4C0H7dgsc9g/viewform" target="_blank" class="form-button">
-                    📝 Completar formulario de registro
-                </a>
             </div>
-        </div>
-    </main>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p>
+                    Contacto: <a href="mailto:saludymortalidad.alap@gmail.com">saludymortalidad.alap@gmail.com</a>
+                </p>
+            </div>
+        </footer>
+    </div>
 
     <script>
         function showTab(tabName) {
@@ -1384,7 +1585,20 @@
             }
         }
 
-        // Event listeners para los acordeones de publicaciones
+        function toggleCollapsible(header) {
+            const content = header.nextElementSibling;
+            const isActive = header.classList.contains('active');
+            
+            if (isActive) {
+                header.classList.remove('active');
+                content.classList.remove('active');
+            } else {
+                header.classList.add('active');
+                content.classList.add('active');
+            }
+        }
+
+        // Event listeners
         document.addEventListener('DOMContentLoaded', function() {
             const tabButtons = document.querySelectorAll('.nav-tab');
             tabButtons.forEach(button => {
